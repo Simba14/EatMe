@@ -1,2 +1,2 @@
-# Eat-Me
+# EatMe
 React Native mobile application to reduce food waste
