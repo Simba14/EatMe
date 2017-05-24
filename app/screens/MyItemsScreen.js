@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
+import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header } from '../components/common';
+import ListView from '../components/ListView'
 
-import ViewContainer from '../components/ViewContainer';
-import UpperContainer from '../components/UpperContainer';
-import LowerContainer from '../components/LowerContainer';
-import Header from '../components/Header';
-import ListView from '../components/ListView';
-import SubmitButton from '../components/SubmitButton';
-
-
-export default class MyItemsScreen extends Component {
+class MyItemsScreen extends Component {
 
   render() {
     return (
@@ -28,4 +22,4 @@ export default class MyItemsScreen extends Component {
   }
 }
 
-module.exports = MyItemsScreen
+export default MyItemsScreen;
