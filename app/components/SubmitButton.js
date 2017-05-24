@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 
 const SubmitButton = ({onPress, children}) => {
   return (
+    <View
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>

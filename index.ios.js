@@ -5,17 +5,12 @@ import {
   Text,
   View
 } from 'react-native';
-import SubmitButton from './app/components/SubmitButton'
-import ViewContainer from './app/components/ViewContainer'
+import AddItemScreen from './app/screens/AddItemScreen';
 
 export default class EatMe extends Component {
   render() {
     return (
-      <ViewContainer>
-        <SubmitButton onPress={() => ("we will probably use linking and url")}>
-          Add an item
-        </SubmitButton>
-      </ViewContainer>
+      <AddItemScreen />
     );
   }
 }
