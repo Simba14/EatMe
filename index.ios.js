@@ -13,7 +13,7 @@ export default class EatMe extends Component {
   render() {
     return (
       <View>
-        <Header />
+        <Header headerText={'MY ITEMS'}/>
         <ListView />
       </View>
     );
