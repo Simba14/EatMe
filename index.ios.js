@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 import Header from './app/components/Header';
-import ListView from './app/components/ListView'
+import ListView from './app/components/ListView';
 
 
 export default class EatMe extends Component {

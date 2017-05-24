@@ -4,6 +4,7 @@ import {
   Text,
   View
 } from 'react-native';
+import Item from './Item';
 
 class ListView extends Component {
   state = {};
@@ -11,15 +12,9 @@ class ListView extends Component {
   render() {
     return (
       <View>
-        <Text>This is gonna be an item</Text>
+        <Item />
       </View>
     )
-  }
-}
-
-const styles = {
-  viewStyle: {
-    backgroundColor: '#F7F7F7'
   }
 }
 
