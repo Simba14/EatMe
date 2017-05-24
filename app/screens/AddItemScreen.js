@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header, Input } from '../components/common';
 
 class AddItemScreen extends Component {
@@ -23,7 +24,7 @@ class AddItemScreen extends Component {
           />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => ("we will probably use linking and url")}>
+          <SubmitButton onPress={() => Actions.MyItems() }>
             Save Item
           </SubmitButton>
         </LowerContainer>
