@@ -14,7 +14,7 @@ class MyItemsScreen extends Component {
           <ListView />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => Actions.AddItem() }>
+          <SubmitButton onPress={() => Actions.add() }>
             Add Item
           </SubmitButton>
         </LowerContainer>

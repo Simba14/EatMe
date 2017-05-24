@@ -24,7 +24,7 @@ class AddItemScreen extends Component {
           />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => Actions.MyItems() }>
+          <SubmitButton onPress={() => Actions.main() }>
             Save Item
           </SubmitButton>
         </LowerContainer>

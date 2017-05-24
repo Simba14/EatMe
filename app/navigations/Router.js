@@ -6,8 +6,12 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 20}}>
-      <Scene key='MyItems' component={ MyItemsScreen } initial />
-      <Scene key='AddItem' component={ AddItemScreen } />
+      <Scene key='main' hideNavBar='true' >
+        <Scene key='MyItems' component={ MyItemsScreen } initial />
+      </Scene>
+      <Scene key='add'>
+        <Scene key='AddItem' component={ AddItemScreen } />
+      </Scene>
     </Router>
   );
 };
