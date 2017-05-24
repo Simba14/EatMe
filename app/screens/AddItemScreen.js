@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, Text } from 'react-native';
 
 import SubmitButton from '../components/SubmitButton';
 import ViewContainer from '../components/ViewContainer';
+import UpperContainer from '../components/UpperContainer';
+import LowerContainer from '../components/LowerContainer';
 
 export default class AddItemScreen extends Component {
   state = {itemName: '', expiryDate: '' }
@@ -10,21 +12,26 @@ export default class AddItemScreen extends Component {
   render() {
     return (
       <ViewContainer>
-        <TextInput
-          value={this.state.text}
-          onChangeText={itemName => this.setState({ itemName })}
-          style={ styles.textInput }
-          placeholder="Item Name"
-        />
-        <TextInput
-          value={this.state.text}
-          onChangeText={expiryDate => this.setState({ expiryDate })}
-          style={ styles.textInput }
-          placeholder="Expiry Date"
-        />
-        <SubmitButton onPress={() => ("we will probably use linking and url")}>
-          Add an item
-        </SubmitButton>
+        <UpperContainer>
+          <Text style={styles.subHeadingText}>Enter a name and the expiry date</Text>
+          <TextInput
+            value={this.state.text}
+            onChangeText={itemName => this.setState({ itemName })}
+            style={ styles.textInput }
+            placeholder="Item Name"
+          />
+          <TextInput
+            value={this.state.text}
+            onChangeText={expiryDate => this.setState({ expiryDate })}
+            style={ styles.textInput }
+            placeholder="Expiry Date"
+          />
+        </UpperContainer>
+        <LowerContainer>
+          <SubmitButton onPress={() => ("we will probably use linking and url")}>
+            Add an item
+          </SubmitButton>
+        </LowerContainer>
       </ViewContainer>
     );
   }
@@ -32,7 +39,6 @@ export default class AddItemScreen extends Component {
 
 const styles = StyleSheet.create({
   textInput: {
-    flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
     borderRadius: 5,
@@ -41,9 +47,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginLeft: 20,
     marginRight: 20,
-    marginBottom: 5,
+    marginBottom: 10,
     marginTop: 5,
-    padding: 5
+    padding: 5,
+    paddingLeft: 10,
+    height: 40,
+    fontSize: 16
+  },
+  subHeadingText: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    color: '#007aff',
+    fontSize: 16,
+    fontWeight: '600',
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginTop: 10
   }
 });
 

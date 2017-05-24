@@ -3,7 +3,6 @@ import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 
 const SubmitButton = ({onPress, children}) => {
   return (
-    <View
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
@@ -15,12 +14,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 50,
     borderWidth: 1,
     borderColor: '#007aff',
     backgroundColor: '#fff',
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 10,
+    marginRight: 10
   },
   text: {
     justifyContent: 'center',
