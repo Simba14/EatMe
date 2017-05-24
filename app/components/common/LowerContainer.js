@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 
-class UpperContainer extends Component {
+class LowerContainer extends Component {
   render() {
     return (
-      <View style={[styles.upperContainer, this.props.style]}>
+      <View style={[styles.lowerContainer, this.props.style]}>
         {this.props.children}
       </View>
     );
@@ -12,12 +12,12 @@ class UpperContainer extends Component {
 }
 
 const styles = StyleSheet.create({
-  upperContainer: {
-    flex: 9,
+  lowerContainer: {
+    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "stretch",
   }
 });
 
-module.exports = UpperContainer
+export { LowerContainer };

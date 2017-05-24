@@ -16,11 +16,9 @@ const styles = {
     alignItems: 'center',
     height: 70,
     paddingTop: 15,
-    // backgroundColor: '#DEDEDE',
     borderBottom: 1,
     borderBottomWidth: 0.5
-
   }
 }
 
-export default Header;
+export { Header };

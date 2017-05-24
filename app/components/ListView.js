@@ -4,6 +4,7 @@ import {
   Text,
   View
 } from 'react-native';
+
 import Item from './Item';
 
 class ListView extends Component {

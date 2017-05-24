@@ -13,6 +13,7 @@ export default class EatMe extends Component {
   render() {
     return (
       <AddItemScreen />
+      // <MyItemsScreen />
     );
   }
 }
