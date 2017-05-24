@@ -5,6 +5,7 @@ import SubmitButton from '../components/SubmitButton';
 import ViewContainer from '../components/ViewContainer';
 import UpperContainer from '../components/UpperContainer';
 import LowerContainer from '../components/LowerContainer';
+import Header from '../components/Header';
 
 export default class AddItemScreen extends Component {
   state = {itemName: '', expiryDate: '' }
@@ -13,6 +14,7 @@ export default class AddItemScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
+          <Header headerText={'ADD ITEM'}/>
           <Text style={styles.subHeadingText}>Enter a name and the expiry date</Text>
           <TextInput
             value={this.state.text}
@@ -29,7 +31,7 @@ export default class AddItemScreen extends Component {
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={() => ("we will probably use linking and url")}>
-            Add an item
+            Save Item
           </SubmitButton>
         </LowerContainer>
       </ViewContainer>
