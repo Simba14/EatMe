@@ -5,8 +5,9 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 
 const RouterComponent = () => {
   return (
-    <Router>
-      <Scene key='MyItems' component={ MyItemsScreen }/>
+    <Router sceneStyle={{ paddingTop: 20}}>
+      <Scene key='MyItems' component={ MyItemsScreen } initial />
+      <Scene key='AddItem' component={ AddItemScreen } />
     </Router>
   );
 };

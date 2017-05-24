@@ -10,7 +10,7 @@ class AddItemScreen extends Component {
       <ViewContainer>
         <UpperContainer>
           <Header headerText={'ADD ITEM'}/>
-          <Text style={styles.subHeadingText}>Enter a name and the expiry date</Text>
+          <Text style={styles.subHeadingText}>Enter a name and its expiry date</Text>
           <Input
             placeholder="Avocado"
             value={this.state.text}
