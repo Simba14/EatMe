@@ -28,8 +28,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     height: 40,
     fontSize: 16
-  },
-  labelStyle
+  }
 });
 
 export { Input };
