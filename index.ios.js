@@ -5,23 +5,19 @@ import {
   Text,
   View
 } from 'react-native';
-import Header from './app/components/Header';
-import ListView from './app/components/ListView';
 
+import AddItemScreen from './app/screens/AddItemScreen';
+import MyItemsScreen from './app/screens/MyItemsScreen';
 
 export default class EatMe extends Component {
   render() {
     return (
-      <View>
-        <Header headerText={'MY ITEMS'}/>
-        <ListView />
-      </View>
+      <AddItemScreen />
     );
   }
 }
 
 const styles = StyleSheet.create({
-
 
 });
 
