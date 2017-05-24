@@ -7,11 +7,11 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 20}}>
-      <Scene key='main' hideNavBar='true' >
+      <Scene key='main' direction='leftToRight' hideNavBar='true' >
         <Scene key='MyItems' component={ MyItemsScreen } initial />
       </Scene>
-      <Scene key='add'>
-        <Scene key='AddItem' onLeft={() => Actions.main() }leftTitle='My Items' component={ AddItemScreen } />
+      <Scene key='add' direction='vertical'>
+        <Scene key='AddItem'  onLeft={() => Actions.main() }leftTitle='My Items' component={ AddItemScreen } />
       </Scene>
     </Router>
   );
