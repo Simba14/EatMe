@@ -12,7 +12,9 @@ export default class EatMe extends Component {
   render() {
     return (
       <ViewContainer>
-        <SubmitButton />
+        <SubmitButton onPress={() => ("we will probably use linking and url")}>
+          Add an item
+        </SubmitButton>
       </ViewContainer>
     );
   }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const SubmitButton = () => {
+const SubmitButton = ({onPress, children}) => {
   return (
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.text}>Click Me!</Text>
+    <TouchableOpacity onPress={onPress} style={styles.button}>
+      <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   );
 };
