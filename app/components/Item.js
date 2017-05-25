@@ -1,4 +1,3 @@
-import moment from 'moment';
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import moment from 'moment';
