@@ -32,12 +32,12 @@ class Item extends Component {
   }
 
   expiryString(date) {
-    return moment(date).add(1, 'days').fromNow();
+    return moment(date);
   }
 
   daysToExpire(date) {
     var today = moment();
-    var expires = moment(date).add(1, 'days');
+    var expires = moment(date);
     return expires.diff(today, 'days')
   }
 
