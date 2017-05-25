@@ -1,41 +1,48 @@
 import moment from 'moment';
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import moment from 'moment';
+// import UpperContainer from './common/UpperContainer';
 
 class Item extends Component {
-  state = {};
-
-  render () {
-    if(this.daysToExpire() < 7){
-      var style = this.daysToExpire() < 3? styles.shortToExpire : styles.mediumToExpire;
+  render() {
+    var expires = this.getDate(this.props.item.expiryDate);
+    if(this.daysToExpire(expires) < 7) {
+      var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
 
-    return(
-      <View>
-        <View style={[styles.viewStyle, style]}>
-          <Text style={styles.textStyleName}>Avocado from Sainsburys</Text>
-          <Text style={styles.textStyleDate}>Expires: {this.expiryString()}</Text>
-        </View>
+    return (
+      <View style={[styles.viewStyle, style] }>
+        <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
+        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
+
       </View>
-    )
+    );
   }
-  daysToExpire() {
+
+  getDate(date) {
+    dateIntegers = [];
+    dateStrings = date.split(',');
+
+    dateIntegers.push(parseInt(dateStrings[0]));
+    dateIntegers.push(parseInt(dateStrings[1]) - 1);
+    dateIntegers.push(parseInt(dateStrings[2]) + 1);
+
+    return dateIntegers;
+  }
+
+  expiryString(date) {
+    return moment(date);
+  }
+
+  daysToExpire(date) {
     var today = moment();
-    var expires = moment([2017,4,29]).add(1, 'days');
+    var expires = moment(date);
     return expires.diff(today, 'days')
   }
-  expiryString() {
-    return moment([2017,4,29]).add(1, 'days').fromNow();
-  }
+};
 
-
-}
-
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
   viewStyle: {
     borderWidth: 0.5,
     borderColor: '#DEDEDE',
