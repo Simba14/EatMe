@@ -6,28 +6,38 @@ import moment from 'moment';
 class Item extends Component {
 
   render() {
-    if(this.daysToExpire() < 7) {
-      var style = this.daysToExpire() < 3 ? styles.shortToExpire : styles.mediumToExpire;
+    var expires = this.getDate(this.props.item.expiryDate);
+    if(this.daysToExpire(expires) < 7) {
+      var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
 
     return (
       <View style={[styles.viewStyle, style] }>
         <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
-        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(this.props.item.expiryDate) } </Text>
-        <Text>{this.props.item.expiryDate} </Text>
+        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
       </View>
     );
   }
 
 
+  getDate(date) {
+    dateIntegers = [];
+    dateStrings = date.split(',');
 
-  expiryString(date) {
-    return moment([ date ]).add(1, 'days').fromNow();
+    dateIntegers.push(parseInt(dateStrings[0]));
+    dateIntegers.push(parseInt(dateStrings[1]) - 1);
+    dateIntegers.push(parseInt(dateStrings[2]) + 1);
+
+    return dateIntegers;
   }
 
-  daysToExpire() {
+  expiryString(date) {
+    return moment(date).add(1, 'days').fromNow();
+  }
+
+  daysToExpire(date) {
     var today = moment();
-    var expires = moment([ 2017, 4, 26]).add(1, 'days');
+    var expires = moment(date).add(1, 'days');
     return expires.diff(today, 'days')
   }
 
