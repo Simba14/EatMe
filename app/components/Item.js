@@ -14,7 +14,6 @@ class Item extends Component {
       <View style={[styles.viewStyle, style] }>
         <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
         <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
-
       </View>
     );
   }
@@ -31,12 +30,13 @@ class Item extends Component {
   }
 
   expiryString(date) {
-    return moment(date);
+    return moment(date).fromNow();
   }
 
   daysToExpire(date) {
     var today = moment();
     var expires = moment(date);
+
     return expires.diff(today, 'days')
   }
 };

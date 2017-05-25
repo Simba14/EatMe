@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+// import { StyleSheet } from 'react-native';
 import { Scene, Router } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
 import AddItemScreen from '../screens/AddItemScreen';
