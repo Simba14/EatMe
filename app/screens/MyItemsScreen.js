@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header } from '../components/common';
+import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
 import ListView from '../components/ListView';
 
 class MyItemsScreen extends Component {
@@ -10,7 +10,6 @@ class MyItemsScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
-          <Header headerText={'MY ITEMS'}/>
           <ListView />
         </UpperContainer>
         <LowerContainer>

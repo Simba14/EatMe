@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center',
     borderRadius: 50,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    backgroundColor: '#fff',
-    marginLeft: 10,
-    marginRight: 10
+    backgroundColor: '#14C68A',
+    marginLeft: 20,
+    marginRight: 20
+    //drop shadow
+
   },
   text: {
     justifyContent: 'center',
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    color: '#FFF'
   }
 });
 
