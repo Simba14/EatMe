@@ -8,10 +8,10 @@ const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 20}}>
       <Scene key='main' direction='leftToRight' hideNavBar='true' >
-        <Scene key='MyItems' component={ MyItemsScreen } initial />
+        <Scene key='myItems' component={ MyItemsScreen } initial />
       </Scene>
       <Scene key='add' direction='vertical'>
-        <Scene key='AddItem'  onLeft={() => Actions.main() }leftTitle='My Items' component={ AddItemScreen } />
+        <Scene key='addItem'  onLeft={() => Actions.main() }leftTitle='My Items' component={ AddItemScreen } />
       </Scene>
     </Router>
   );

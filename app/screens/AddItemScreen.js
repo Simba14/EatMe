@@ -5,9 +5,17 @@ import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header, In
 import Item from '../components/Item';
 
 class AddItemScreen extends Component {
-  state = {itemName: '', expiryDate: '' }
+  constructor() {
+    super();
+    this.state = {itemName: '', expiryDate: '' }
+  }
 
   render() {
+
+    const saveItem = () => {
+      Actions.main({ value: this.state.itemName, expiryDate: this.state.expiryDate });
+    };
+
     return (
       <ViewContainer>
         <UpperContainer>
@@ -25,27 +33,21 @@ class AddItemScreen extends Component {
           />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={this.onClick}>
+          <SubmitButton onPress={saveItem}>
             Save Item
           </SubmitButton>
         </LowerContainer>
       </ViewContainer>
     );
   }
+
   onClick() {
     Actions.main();
     this.saveItem;
   }
 
   saveItem(value, expirationDate) {
-    realm.write(()=> {
-      realm.create(Item.schema.name, {
-        id: uuid.v1(),
-        value,
-        expirationDate,
-        createdTimestamp: new Date()
-      })
-    })
+
   }
 }
 
