@@ -4,25 +4,26 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
+import Realm from 'realm';
 
 class Item extends Component {
-  state = {};
+  static get () { return realm.objects(Item.schema.name) }
+  static schema = {
+    name: "Item",
+    primaryKey: "id",
+    properties: {
+      id: {type: 'string'},
+      value: {type: 'string'},
+      expirationDate: {type: 'date'},
+      createdTimestamp: {type: 'date'}
+    }
+  }
 
   render () {
     return(
-      <View>
-        <View style={styles.viewStyle}>
-          <Text style={styles.textStyleName}>Avocado from Sainsburys</Text>
-          <Text style={styles.textStyleDate}>Expires on: 27/05/17</Text>
-        </View>
-        <View style={styles.viewStyle}>
-          <Text style={styles.textStyleName}>Banana from Tesco</Text>
-          <Text style={styles.textStyleDate}>Expires on: 27/05/17</Text>
-        </View>
-        <View style={styles.viewStyle}>
-          <Text style={styles.textStyleName}>Coconut from Thailand</Text>
-          <Text style={styles.textStyleDate}>Expires on: 27/05/17</Text>
-        </View>
+      <View style={styles.viewStyle}>
+        <Text style={styles.textStyleName}>Avocado from Sainsburys</Text>
+        <Text style={styles.textStyleDate}>Expires on: 27/05/17</Text>
       </View>
     )
   }
@@ -47,4 +48,5 @@ const styles = StyleSheet.create({
   }
 });
 
+const realm = new Realm({schema: [Item] })
 export default Item;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header, Input } from '../components/common';
+import Item from '../components/Item';
 
 class AddItemScreen extends Component {
   state = {itemName: '', expiryDate: '' }
@@ -24,12 +25,27 @@ class AddItemScreen extends Component {
           />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => Actions.main() }>
+          <SubmitButton onPress={this.onClick}>
             Save Item
           </SubmitButton>
         </LowerContainer>
       </ViewContainer>
     );
+  }
+  onClick() {
+    Actions.main();
+    this.saveItem;
+  }
+
+  saveItem(value, expirationDate) {
+    realm.write(()=> {
+      realm.create(Item.schema.name, {
+        id: uuid.v1(),
+        value,
+        expirationDate,
+        createdTimestamp: new Date()
+      })
+    })
   }
 }
 
