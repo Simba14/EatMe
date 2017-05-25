@@ -7,10 +7,17 @@ import {
 import Item from './Item';
 
 class ListView extends Component {
-  state = { items = []; };
+  state = { items: [{
+    name: "Bananas",
+    expiryDate: "25/12/17"
+  }, {
+    name: "Avocado",
+    expiryDate: "12/12/12"
+  }]
+};
 
   renderItems() {
-    return this.state.items.map(item => <Item item={item} />);
+    return this.state.items.map(item => <Item key={item.name} item={item} />);
   }
 
   render() {

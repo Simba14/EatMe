@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+// import UpperContainer from './common/UpperContainer';
 
 class Item extends Component {
-  state = {};
 
-  render () {
-    return(
-      <View style={styles.viewStyle}>
-        <Text style={styles.textStyleName}>Avocado from Sainsburys</Text>
-        <Text style={styles.textStyleDate}>Expires on: 27/05/17</Text>
+  render() {
+    return (
+      <View style={ styles.viewStyle }>
+        <Text style={ styles.textStyleName }> { this.props.item.name } </Text>
+        <Text style={ styles.textStyleDate }> { this.props.item.expiryDate } </Text>
       </View>
-    )
+    );
   }
-}
+};
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
   viewStyle: {
     borderWidth: 0.5,
     borderColor: '#DEDEDE',
