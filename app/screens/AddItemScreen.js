@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header, Input } from '../components/common';
 
 class AddItemScreen extends Component {
@@ -10,7 +11,7 @@ class AddItemScreen extends Component {
       <ViewContainer>
         <UpperContainer>
           <Header headerText={'ADD ITEM'}/>
-          <Text style={styles.subHeadingText}>Enter a name and the expiry date</Text>
+          <Text style={styles.subHeadingText}>Enter a name and its expiry date</Text>
           <Input
             placeholder="Avocado"
             value={this.state.text}
@@ -23,7 +24,7 @@ class AddItemScreen extends Component {
           />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => ("we will probably use linking and url")}>
+          <SubmitButton onPress={() => Actions.main() }>
             Save Item
           </SubmitButton>
         </LowerContainer>
