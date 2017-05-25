@@ -10,29 +10,26 @@ class Item extends Component {
   state = {};
 
   render () {
-
-    if (this.daysToExpire() < 3) {
-      var style = styles.shortToExpire;
-    } else if (this.daysToExpire() < 7) {
-      var style = styles.mediumToExpire;
-    } else {
-      // var style = styles.viewStyle;
+    if(this.daysToExpire() < 7){
+      var style = this.daysToExpire() < 3? styles.shortToExpire : styles.mediumToExpire;
     }
 
     return(
       <View>
         <View style={[styles.viewStyle, style]}>
           <Text style={styles.textStyleName}>Avocado from Sainsburys</Text>
-          <Text style={styles.textStyleDate}>Expires in: {this.daysToExpire()} days</Text>
+          <Text style={styles.textStyleDate}>Expires: {this.expiryString()}</Text>
         </View>
       </View>
     )
   }
   daysToExpire() {
-    var today = moment().format('l');
-    var expires = moment('27-5-2017', 'DD-M-YYYY');
-    return expires.diff(today,'days');
-    // if expires in 0 days return string today
+    var today = moment();
+    var expires = moment([2017,4,29]).add(1, 'days');
+    return expires.diff(today, 'days')
+  }
+  expiryString() {
+    return moment([2017,4,29]).add(1, 'days').fromNow();
   }
 
 
