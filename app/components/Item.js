@@ -9,17 +9,22 @@ class Item extends Component {
     if(this.daysToExpire() < 7) {
       var style = this.daysToExpire() < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
+
     return (
       <View style={[styles.viewStyle, style] }>
         <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
-        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString() } </Text>
+        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(this.props.item.expiryDate) } </Text>
+        <Text>{this.props.item.expiryDate} </Text>
       </View>
     );
   }
 
-  expiryString() {
-    return moment([ 2017,4,26 ]).add(1, 'days').fromNow();
+
+
+  expiryString(date) {
+    return moment([ date ]).add(1, 'days').fromNow();
   }
+
   daysToExpire() {
     var today = moment();
     var expires = moment([ 2017, 4, 26]).add(1, 'days');

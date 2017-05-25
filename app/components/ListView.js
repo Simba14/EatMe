@@ -9,19 +9,13 @@ import Item from './Item';
 class ListView extends Component {
   state = { items: [{
       name: "Bananas",
-      expiryYear: 2017,
-      expiryMonth: 4,
-      expiryDay: 26
+      expiryDate: 2017
     }, {
       name: "Avocado",
-      expiryYear: 2017,
-      expiryMonth: 4,
-      expiryDay: 26
+      expiryDate: 2017
     }, {
       name: "Nuts",
-      expiryYear: 2017,
-      expiryMonth: 4,
-      expiryDay: 26
+      expiryDate: 2017
     }]
   };
 
