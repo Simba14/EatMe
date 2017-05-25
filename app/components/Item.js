@@ -4,7 +4,6 @@ import moment from 'moment';
 // import UpperContainer from './common/UpperContainer';
 
 class Item extends Component {
-
   render() {
     var expires = this.getDate(this.props.item.expiryDate);
     if(this.daysToExpire(expires) < 7) {
@@ -15,10 +14,10 @@ class Item extends Component {
       <View style={[styles.viewStyle, style] }>
         <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
         <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
+
       </View>
     );
   }
-
 
   getDate(date) {
     dateIntegers = [];
@@ -40,9 +39,7 @@ class Item extends Component {
     var expires = moment(date);
     return expires.diff(today, 'days')
   }
-
 };
-
 
 const styles = StyleSheet.create( {
   viewStyle: {

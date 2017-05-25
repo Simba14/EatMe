@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux'
-import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header, Input } from '../components/common';
+import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 
 class AddItemScreen extends Component {
   state = {itemName: '', expiryDate: '' }
@@ -10,7 +10,6 @@ class AddItemScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
-          <Header headerText={'ADD ITEM'}/>
           <Text style={styles.subHeadingText}>Enter a name and its expiry date</Text>
           <Input
             placeholder="Avocado"
