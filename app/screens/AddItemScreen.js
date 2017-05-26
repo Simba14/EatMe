@@ -5,8 +5,6 @@ import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } fr
 import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
 
-let count = 0
-
 class AddItemScreen extends Component {
   constructor() {
     super();
@@ -14,7 +12,6 @@ class AddItemScreen extends Component {
   }
 
   render() {
-
     const saveItem = () => {
       Actions.main();
       createItem();
@@ -32,8 +29,11 @@ class AddItemScreen extends Component {
     }
 
     const getId = () => {
-      count += 1
-      return count
+      let results = [ realm.objects('ItemDB')];
+      itemObject = results.map(x => Object.assign({}, x));
+      itemArray = Object.values(itemObject[0]);
+      count = itemArray.length + 1;
+      return count;
     }
 
     return (
