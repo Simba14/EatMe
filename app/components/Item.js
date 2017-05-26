@@ -6,6 +6,7 @@ import Realm from 'realm';
 class Item extends Component {
 
   render () {
+    // console.log(this.props.item.expirationDate);
     var expires = this.getDate(this.props.item.expirationDate);
     if(this.daysToExpire(expires) < 7) {
       var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;

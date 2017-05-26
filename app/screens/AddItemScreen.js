@@ -7,7 +7,7 @@ import { realm } from '../components/Schema';
 
 class AddItemScreen extends Component {
   static defaultProps = {
-    date = new Date();
+    date: new Date()
   }
   constructor(props) {
     super(props);
