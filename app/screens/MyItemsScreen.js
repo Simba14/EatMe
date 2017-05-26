@@ -12,7 +12,7 @@ class MyItemsScreen extends Component {
         <UpperContainer>
           <Header headerText={'MY ITEMS'}/>
           <ListView />
-          <Text>{this.props.value}, {this.props.expiryDate}</Text>
+          <Text>{this.props.itemName} {this.props.expiryDate}</Text>
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={() => Actions.add() }>

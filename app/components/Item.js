@@ -6,26 +6,46 @@ import {
 } from 'react-native';
 import Realm from 'realm';
 
-class Item extends Component {
-  static get () { return realm.objects(Item.schema.name) }
+export class ItemDB {
+  static get () { return realm.objects(ItemDB.schema.name) }
   static schema = {
-    name: "Item",
-    primaryKey: "id",
+    name: 'ItemDB',
+    primaryKey: 'id',
     properties: {
-      id: {type: 'string'},
-      value: {type: 'string'},
-      expirationDate: {type: 'date'},
+      id: {type: 'int'},
+      itemName: {type: 'string'},
+      expirationDate: {type: 'string'},
       createdTimestamp: {type: 'date'}
     }
   }
+}
+
+class Item extends Component {
 
   render () {
+    // const getItem = (id) => {
+    //   const item = realm.objectForPrimaryKey(ItemDB, id)
+    //   if(item === undefined) {
+    //     return 'Your item list is empty'
+    //   } else {
+    //     return item.itemName
+    //   }
+    // }
+
+    const getAllItems = () => {
+      let results = [ realm.objects('ItemDB')];
+      array = results.map(x => Object.assign({}, x));
+      console.log(array[0][0].itemName);
+      debugger;
+    }
+
+
     return(
       <View style={styles.viewStyle}>
-        <Text style={styles.textStyleName}>Avocado from Sainsburys</Text>
-        <Text style={styles.textStyleDate}>Expires on: 27/05/17</Text>
+        <Text style={styles.textStyleName}>{getAllItems()}</Text>
       </View>
-    )
+    );
+
   }
 }
 
@@ -48,5 +68,5 @@ const styles = StyleSheet.create({
   }
 });
 
-const realm = new Realm({schema: [Item] })
+export const realm = new Realm({schema: [ItemDB]});
 export default Item;

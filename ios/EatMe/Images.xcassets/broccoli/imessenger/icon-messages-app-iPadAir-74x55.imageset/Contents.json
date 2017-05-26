@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "broccoli.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icon-messages-app-iPadAir-74x55@2x.png",
       "scale" : "2x"
     },
     {
