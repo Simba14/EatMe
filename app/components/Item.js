@@ -2,20 +2,32 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import moment from 'moment';
 import Realm from 'realm';
+import { realm } from './Schema';
+import ItemDB from './Schema';
+import Swipeout from 'react-native-swipeout';
 
 class Item extends Component {
 
   render () {
+    let swipeoutBtns = [{
+      text: 'Delete',
+      backgroundColor: 'red',
+      underlayColor: 'grey',
+      onPress: () => { this.deleteItem() }
+    }];
+
     var expires = this.getDate(this.props.item.expirationDate);
     if(this.daysToExpire(expires) < 7) {
       var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
 
     return(
-      <View style={[styles.viewStyle, style] }>
-        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
-        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
-      </View>
+      <Swipeout right={swipeoutBtns} style={styles.swipeStyle}>
+        <View style={[styles.viewStyle, style] }>
+          <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
+          <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
+        </View>
+      </Swipeout>
     );
   }
 
@@ -40,18 +52,21 @@ class Item extends Component {
 
     return expires.diff(today, 'days')
   }
+
+  deleteItem() {
+    const itemToDelete = realm.objectForPrimaryKey('ItemDB', this.props.item.id);
+    realm.write(() => {
+      realm.delete(itemToDelete)
+    })
+  }
 };
 
 const styles = StyleSheet.create( {
   viewStyle: {
     borderWidth: 0.5,
     borderColor: '#DEDEDE',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20,
     height: 70,
     borderRadius: 2,
-    borderBottomWidth: 0,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1
@@ -69,6 +84,12 @@ const styles = StyleSheet.create( {
   textStyleDate: {
     marginLeft: 10,
     marginTop: 10
+  },
+  swipeStyle: {
+    backgroundColor: 'white',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20
   }
 });
 
