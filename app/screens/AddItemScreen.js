@@ -53,7 +53,7 @@ class AddItemScreen extends Component {
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={saveItem}>
-            Save Item
+            SAVE TO MY LIST
           </SubmitButton>
         </LowerContainer>
       </ViewContainer>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   subHeadingText: {
     justifyContent: 'center',
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#007AFF',
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
