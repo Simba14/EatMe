@@ -6,49 +6,28 @@ import Realm from 'realm';
 class Item extends Component {
 
   render () {
-    // console.log(this.props.item.expirationDate);
-    // var expires = this.props.item.expirationDate;
+    var expirationDate = this.props.item.expirationDate;
 
-    // var expires = this.getDate(this.props.item.expirationDate);
-    // if(this.daysToExpire(expires) < 7) {
-    //   var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
-    // }
-    // var expirationDate = this.props.item.date;
+    if(this.daysToExpire(expirationDate) < 7) {
+      var style = this.daysToExpire(expirationDate) < 3 ? styles.shortToExpire : styles.mediumToExpire;
+    }
+
 
     return(
-      <View style={[styles.viewStyle] }>
-        <Text style={ [styles.textStyleName] }> { this.props.item.itemName } </Text>
-        <Text style={ [styles.textStyleDate] }> Expires: { moment(this.props.item.date).fromNow() } </Text>
+      <View style={[styles.viewStyle, style] }>
+        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
+        <Text style={ [styles.textStyleDate, style] }> Expires: { moment(expirationDate).fromNow() } </Text>
       </View>
     );
   }
+
+  daysToExpire(expirationDate) {
+    var today = moment();
+    var expirationDate = moment(expirationDate);
+    return expirationDate.diff(today, 'days')
+  }
+
 };
-
-  // getDate(date) {
-  //   dateIntegers = [];
-  //   dateStrings = date.split(',');
-  //
-  //   dateIntegers.push(parseInt(dateStrings[0]));
-  //   dateIntegers.push(parseInt(dateStrings[1]) - 1);
-  //   dateIntegers.push(parseInt(dateStrings[2]) + 1);
-  //
-  //
-  //   return dateIntegers;
-  // }
-
-  // expiryString(date) {
-  //   return moment([date]).fromNow();
-  // }
-
-  // daysToExpire(date) {
-  //
-  //   var today = moment();
-  //   var expires = date;
-  //   var expires = moment([date]);
-  //
-  //   return expires.diff(today, 'days')
-  // }
-// };
 
 const styles = StyleSheet.create( {
   viewStyle: {
