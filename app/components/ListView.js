@@ -17,7 +17,7 @@ class ListView extends Component {
   }
 
   renderItems(itemArray) {
-    return itemArray.map(item => <Item item={item} />);
+    return itemArray.map(item => <Item key={item.id} item={item} />);
   }
 
   render() {
