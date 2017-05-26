@@ -65,12 +65,13 @@ const styles = StyleSheet.create({
   subHeadingText: {
     justifyContent: 'center',
     alignSelf: 'center',
-    color: '#007AFF',
-    fontSize: 16,
-    fontWeight: '600',
+    color: '#323232',
+    fontSize: 18,
     paddingTop: 10,
     paddingBottom: 10,
-    marginTop: 10
+    marginTop: 15,
+    marginBottom: 10
+
   }
 });
 
