@@ -10,13 +10,14 @@ import { Actions } from 'react-native-router-flux';
 class Item extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
   render () {
     let swipeoutBtns = [{
       text: 'Delete',
       backgroundColor: 'red',
       underlayColor: 'grey',
-      onPress: () => { console.log(this.props.deleteItem(this.props.item.id)) }
+      onPress: () => { this.props.deleteItem(this.props.item.id) }
     }];
 
     var expires = this.getDate(this.props.item.expirationDate);

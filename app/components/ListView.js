@@ -13,7 +13,7 @@ class ListView extends Component {
   constructor(props) {
     super(props);
     this.state = { items: [] };
-    this.deleteItem = this.deleteItem.bind(this);
+    this.props.deleteItem = this.props.deleteItem.bind(this);
   }
 
   componentWillMount() {
@@ -27,19 +27,20 @@ class ListView extends Component {
 
   renderItems() {
     if (this.state.items.length > 0) {
-      return this.state.items.map(item => <Item key={item.id} item={item} deleteItem={this.deleteItem} />);
+      return this.state.items.map(item => <Item key={item.id} item={item} deleteItem={this.props.deleteItem}/>);
     } else {
       return ( <StartScreen /> );
     }
   }
 
-  deleteItem(id) {
-    console.log("Here");
-    const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
-    realm.write(() => {
-      realm.delete(itemToDelete);
-    })
-  }
+  // deleteItem(id) {
+  //   console.log("Here");
+  //   const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
+  //   realm.write(() => {
+  //     realm.delete(itemToDelete);
+  //   });
+  //
+  // }
 
   render() {
     return (
