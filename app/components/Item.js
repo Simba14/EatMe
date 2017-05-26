@@ -5,18 +5,20 @@ import Realm from 'realm';
 import { realm } from './Schema';
 import ItemDB from './Schema';
 import Swipeout from 'react-native-swipeout';
+import { Actions } from 'react-native-router-flux';
 
 class Item extends Component {
   constructor(props) {
     super(props);
-    this.deleteItem = this.deleteItem.bind(this);
+    console.log(this.props.deleteItem)
+    // this.deleteItem = this.deleteItem.bind(this);
   }
   render () {
     let swipeoutBtns = [{
       text: 'Delete',
       backgroundColor: 'red',
       underlayColor: 'grey',
-      onPress: () => { this.deleteItem() }
+      onPress: () => { this.props.deleteItem }
     }];
 
     var expires = this.getDate(this.props.item.expirationDate);
@@ -56,12 +58,12 @@ class Item extends Component {
     return expires.diff(today, 'days')
   }
 
-  deleteItem() {
-    const itemToDelete = realm.objectForPrimaryKey('ItemDB', this.props.item.id);
-    realm.write(() => {
-      realm.delete(itemToDelete);
-    })
-  }
+  // deleteItem() {
+  //   const itemToDelete = realm.objectForPrimaryKey('ItemDB', this.props.item.id);
+  //   realm.write(() => {
+  //     realm.delete(itemToDelete);
+  //   })
+  // }
 };
 
 const styles = StyleSheet.create( {

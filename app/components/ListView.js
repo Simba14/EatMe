@@ -13,7 +13,7 @@ class ListView extends Component {
   constructor(props) {
     super(props);
     this.state = { items: [] };
-    this.componentWillMount = this.componentWillMount.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   componentWillMount() {
@@ -27,12 +27,20 @@ class ListView extends Component {
 
   renderItems() {
     if (this.state.items.length > 0) {
-      return this.state.items.map(item => <Item key={item.id} item={item} />);
+      return this.state.items.map(item => <Item key={item.id} item={item} deleteItem={this.deleteItem} />);
     } else {
       return ( <StartScreen /> );
     }
   }
 
+  deleteItem() {
+    console.log("Here");
+    const itemToDelete = realm.objectForPrimaryKey('ItemDB', this.props.item.id);
+    realm.write(() => {
+      realm.delete(itemToDelete);
+    })
+  }
+  
   render() {
     return (
       <ScrollView>
@@ -40,6 +48,7 @@ class ListView extends Component {
       </ScrollView>
     );
   }
+
 };
 
 export default ListView;
