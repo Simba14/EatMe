@@ -4,45 +4,14 @@ import {
   ScrollView
 } from 'react-native';
 
+
 import StartScreen from './common/StartScreen';
+import Realm from 'realm'
+import { realm } from './Item'
 import Item from './Item';
+import { ItemDB } from './Item';
 
 class ListView extends Component {
-  state = { items: [
-    // {
-  //     name: "Bananas",
-  //     expiryDate: "2017,5,26"
-  //   }, {
-  //     name: "Avocado",
-  //     expiryDate: "2017,5,05"
-  //   }, {
-  //     name: "Nuts",
-  //     expiryDate: "2017,7,12"
-  //   }, {
-  //     name: "Oranges",
-  //     expiryDate: "2017,7,12"
-  //   }, {
-  //     name: "Broccoli",
-  //     expiryDate: "2017,5,12"
-  //   }, {
-  //     name: "Pasta",
-  //     expiryDate: "2017,10,12"
-  //   }, {
-  //     name: "Tomatoes",
-  //     expiryDate: "2017,9,12"
-  //   }, {
-  //     name: "Apples",
-  //     expiryDate: "2017,6,12"
-    // }
-    ] };
-
-
-
-
-  //     var sorted = someItems.sort(function(a, b) {
-  //       return new Date(a.expiryDate) - new Date(b.expiryDate)
-  //     });
-
 
     renderItems() {
       if (this.state.items.length > 0) {
@@ -53,10 +22,22 @@ class ListView extends Component {
     }
 
 
+  getAllItems() {
+    let results = [ realm.objects('ItemDB')];
+    itemObject = results.map(x => Object.assign({}, x));
+    itemArray = Object.values(itemObject[0]);
+    return this.renderItems(itemArray);
+  }
+
+  renderItems(itemArray) {
+    return itemArray.map(item => <Item key={item.id} item={item} />);
+  }
+
+
   render() {
     return (
       <ScrollView>
-        {this.renderItems()}
+        {this.getAllItems()}
       </ScrollView>
     );
   }
