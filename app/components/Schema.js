@@ -7,7 +7,7 @@ export class ItemDB {
     name: 'ItemDB',
     primaryKey: 'id',
     properties: {
-      id: {type: 'int'},
+      id: {type: 'string'},
       itemName: {type: 'string'},
       expirationDate: {type: 'string'},
       createdTimestamp: {type: 'date'}

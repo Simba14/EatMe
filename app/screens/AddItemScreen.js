@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
+import uuid from 'uuid';
 
 class AddItemScreen extends Component {
   constructor() {
@@ -20,20 +21,12 @@ class AddItemScreen extends Component {
     const createItem = () => {
       realm.write(() => {
         realm.create(ItemDB.schema.name, {
-          id: getId(),
+          id: uuid.v1(),
           itemName: this.state.itemName,
           expirationDate: this.state.expiryDate,
           createdTimestamp: new Date()
         });
       });
-    }
-
-    const getId = () => {
-      let results = [ realm.objects('ItemDB')];
-      itemObject = results.map(x => Object.assign({}, x));
-      itemArray = Object.values(itemObject[0]);
-      count = itemArray.length + 1;
-      return count;
     }
 
     return (
