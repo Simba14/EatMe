@@ -33,15 +33,6 @@ class ListView extends Component {
     }
   }
 
-  // deleteItem(id) {
-  //   console.log("Here");
-  //   const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
-  //   realm.write(() => {
-  //     realm.delete(itemToDelete);
-  //   });
-  //
-  // }
-
   render() {
     return (
       <ScrollView>
