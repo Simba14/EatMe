@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Text, AsyncStorage } from 'react-native';
+import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
 
 class AddItemScreen extends Component {
-  constructor() {
-    super();
-    this.state = {itemName: '', expiryDate: '' }
+  static defaultProps = {
+    date = new Date();
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemName: '',
+      date: this.props.date }
+  }
+
+  onDateChange = (date) => {
+    this.setState({date: date});
   }
 
   render() {
@@ -22,7 +31,7 @@ class AddItemScreen extends Component {
         realm.create(ItemDB.schema.name, {
           id: getId(),
           itemName: this.state.itemName,
-          expirationDate: this.state.expiryDate,
+          expirationDate: this.state.date,
           createdTimestamp: new Date()
         });
       });
@@ -45,10 +54,10 @@ class AddItemScreen extends Component {
             value={this.state.text}
             onChangeText={itemName => this.setState({ itemName })}
           />
-          <Input
-            placeholder="25/12/17"
-            value={this.state.text}
-            onChangeText={expiryDate => this.setState({ expiryDate })}
+          <DatePickerIOS
+            date={this.state.date}
+            mode="date"
+            onDateChange={this.onDateChange}
           />
         </UpperContainer>
         <LowerContainer>
