@@ -13,11 +13,12 @@ class Item extends Component {
     // if(this.daysToExpire(expires) < 7) {
     //   var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     // }
+    // var expirationDate = this.props.item.date;
 
     return(
       <View style={[styles.viewStyle] }>
         <Text style={ [styles.textStyleName] }> { this.props.item.itemName } </Text>
-        <Text style={ [styles.textStyleDate] }> Expires: { moment(this.props.item.date).format('DD/MM/YYYY') } </Text>
+        <Text style={ [styles.textStyleDate] }> Expires: { moment(this.props.item.date).fromNow() } </Text>
       </View>
     );
   }

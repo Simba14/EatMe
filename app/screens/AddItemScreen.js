@@ -6,25 +6,26 @@ import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
 
 class AddItemScreen extends Component {
-  static defaultProps = {
-    date: new Date()
+  // static defaultProps = {
+  //   date: new Date(),
+  // };
+constructor(props) {
+  super(props);
+  this.state = {
+    date: new Date(),
   }
-  constructor(props) {
-    super(props);
-    this.state = {
-      itemName: '',
-      date: this.props.date }
-  }
+}
 
-  onDateChange = (date) => {
-    this.setState({date: date});
-  }
+  // onDateChange = (date) => {
+  //   this.setState({date: date});
+  // };
 
   render() {
+
     const saveItem = () => {
       Actions.main();
       createItem();
-    };
+    }
 
     const createItem = () => {
       realm.write(() => {
@@ -57,7 +58,7 @@ class AddItemScreen extends Component {
           <DatePickerIOS
             date={this.state.date}
             mode="date"
-            onDateChange={this.onDateChange}
+            onDateChange={(date)=>this.setState({date})}
           />
         </UpperContainer>
         <LowerContainer>
@@ -67,7 +68,7 @@ class AddItemScreen extends Component {
         </LowerContainer>
       </ViewContainer>
     );
-  }
+  };
 }
 
 const styles = StyleSheet.create({
