@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import moment from 'moment';
 import Realm from 'realm';
-import { realm } from './Schema';
-import ItemDB from './Schema';
 import Swipeout from 'react-native-swipeout';
 import { Actions } from 'react-native-router-flux';
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
 import ListView from '../components/ListView';
+import { realm } from './Schema';
+import ItemDB from './Schema';
 
 class MyItemsScreen extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class MyItemsScreen extends Component {
       realm.delete(itemToDelete);
     });
   }
-  
+
   render() {
     return (
       <ViewContainer>

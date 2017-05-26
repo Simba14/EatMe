@@ -6,8 +6,8 @@ import {
 import StartScreen from './common/StartScreen';
 import Realm from 'realm';
 import { realm } from './Schema';
-import Item from './Item';
 import { ItemDB } from './Schema';
+import Item from './Item';
 
 class ListView extends Component {
   constructor(props) {
