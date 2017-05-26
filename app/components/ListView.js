@@ -3,45 +3,27 @@ import {
   StyleSheet,
   ScrollView
 } from 'react-native';
-
+import Realm from 'realm'
+import { realm } from './Item'
 import Item from './Item';
+import { ItemDB } from './Item';
 
 class ListView extends Component {
-  state = { items: [{
-      name: "Bananas",
-      expiryDate: "2017,5,26"
-    }, {
-      name: "Avocado",
-      expiryDate: "2017,5,29"
-    }, {
-      name: "Nuts",
-      expiryDate: "2017,7,12"
-    }, {
-      name: "Oranges",
-      expiryDate: "2017,7,12"
-    }, {
-      name: "Broccoli",
-      expiryDate: "2017,5,12"
-    }, {
-      name: "Pasta",
-      expiryDate: "2017,10,12"
-    }, {
-      name: "Tomatoes",
-      expiryDate: "2017,9,12"
-    }, {
-      name: "Apples",
-      expiryDate: "2017,6,12"
-    }]
-  };
+  getAllItems() {
+    let results = [ realm.objects('ItemDB')];
+    itemObject = results.map(x => Object.assign({}, x));
+    itemArray = Object.values(itemObject[0]);
+    return this.renderItems(itemArray);
+  }
 
-  renderItems() {
-    return this.state.items.map(item => <Item key={item.name} item={item} />);
+  renderItems(itemArray) {
+    return itemArray.map(item => <Item item={item} />);
   }
 
   render() {
     return (
       <ScrollView>
-        {this.renderItems()}
+        {this.getAllItems()}
       </ScrollView>
     );
   }

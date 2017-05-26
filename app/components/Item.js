@@ -20,22 +20,15 @@ export class ItemDB {
 class Item extends Component {
 
   render () {
-    var expires = this.getDate(this.props.item.expiryDate);
+    var expires = this.getDate(this.props.item.expirationDate);
     if(this.daysToExpire(expires) < 7) {
       var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
 
-    const getAllItems = () => {
-      let results = [ realm.objects('ItemDB')];
-      array = results.map(x => Object.assign({}, x));
-      console.log(array[0][0].itemName);
-    }
-
-
     return(
       <View style={[styles.viewStyle, style] }>
-      <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
-      <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
+        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
+        <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
       </View>
     );
   }
