@@ -34,11 +34,11 @@ const styles = {
     color: '#323232'
   },
   body: {
-    marginTop: 30,
+    marginTop: 50,
     marginLeft: 30,
     marginRight: 30,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'System',
     color: '#323232'
   },
