@@ -55,13 +55,6 @@ class Item extends Component {
 
     return expires.diff(today, 'days')
   }
-
-  // deleteItem() {
-  //   const itemToDelete = realm.objectForPrimaryKey('ItemDB', this.props.item.id);
-  //   realm.write(() => {
-  //     realm.delete(itemToDelete);
-  //   })
-  // }
 };
 
 const styles = StyleSheet.create( {
