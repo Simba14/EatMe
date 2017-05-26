@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
-import { ItemDB } from '../components/Item';
-import { realm } from '../components/Item';
+import { ItemDB } from '../components/Schema';
+import { realm } from '../components/Schema';
 
 let count = 0
 

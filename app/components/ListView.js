@@ -4,9 +4,9 @@ import {
   ScrollView
 } from 'react-native';
 import Realm from 'realm'
-import { realm } from './Item'
+import { realm } from './Schema'
 import Item from './Item';
-import { ItemDB } from './Item';
+import { ItemDB } from './Schema';
 
 class ListView extends Component {
   getAllItems() {
