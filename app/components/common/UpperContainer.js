@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "stretch",
+    marginTop: -10,
+    marginBottom: 10
   }
 });
 
