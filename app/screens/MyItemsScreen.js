@@ -15,7 +15,7 @@ class MyItemsScreen extends Component {
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={() => Actions.add() }>
-            ADD ITEM
+            Add Item
           </SubmitButton>
         </LowerContainer>
       </ViewContainer>
