@@ -13,26 +13,21 @@ import { ItemDB } from './Item';
 
 class ListView extends Component {
 
-    renderItems() {
-      if (this.state.items.length > 0) {
-        return this.state.items.map(item => <Item key={item.name} item={item} />);
-      } else {
-        return ( <StartScreen /> );
-      }
-    }
-
-
   getAllItems() {
     let results = [ realm.objects('ItemDB')];
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
+
     return this.renderItems(itemArray);
   }
 
   renderItems(itemArray) {
-    return itemArray.map(item => <Item key={item.id} item={item} />);
+    if (itemArray.length > 0) {
+      return itemArray.map(item => <Item key={item.id} item={item} />);
+    } else {
+      return ( <StartScreen /> );
+    }
   }
-
 
   render() {
     return (
