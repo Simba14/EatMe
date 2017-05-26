@@ -7,7 +7,10 @@ import ItemDB from './Schema';
 import Swipeout from 'react-native-swipeout';
 
 class Item extends Component {
-
+  constructor(props) {
+    super(props);
+    this.deleteItem = this.deleteItem.bind(this);
+  }
   render () {
     let swipeoutBtns = [{
       text: 'Delete',
@@ -56,7 +59,7 @@ class Item extends Component {
   deleteItem() {
     const itemToDelete = realm.objectForPrimaryKey('ItemDB', this.props.item.id);
     realm.write(() => {
-      realm.delete(itemToDelete)
+      realm.delete(itemToDelete);
     })
   }
 };
