@@ -1,12 +1,41 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
+import { View, TextInput, StyleSheet, Text, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
+import { ItemDB } from '../components/Item';
+import { realm } from '../components/Item';
+
+let count = 0
 
 class AddItemScreen extends Component {
-  state = {itemName: '', expiryDate: '' }
+  constructor() {
+    super();
+    this.state = {itemName: '', expiryDate: '' }
+  }
 
   render() {
+
+    const saveItem = () => {
+      Actions.main();
+      createItem();
+    };
+
+    const createItem = () => {
+      realm.write(() => {
+        realm.create(ItemDB.schema.name, {
+          id: getId(),
+          itemName: this.state.itemName,
+          expirationDate: this.state.expiryDate,
+          createdTimestamp: new Date()
+        });
+      });
+    }
+
+    const getId = () => {
+      count += 1
+      return count
+    }
+
     return (
       <ViewContainer>
         <UpperContainer>
@@ -23,7 +52,7 @@ class AddItemScreen extends Component {
           />
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => Actions.main() }>
+          <SubmitButton onPress={saveItem}>
             Save Item
           </SubmitButton>
         </LowerContainer>
@@ -44,5 +73,6 @@ const styles = StyleSheet.create({
     marginTop: 10
   }
 });
+
 
 export default AddItemScreen;

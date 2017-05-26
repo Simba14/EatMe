@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import moment from 'moment';
-// import UpperContainer from './common/UpperContainer';
+import Realm from 'realm';
+
+export class ItemDB {
+  static get () { return realm.objects(ItemDB.schema.name) }
+  static schema = {
+    name: 'ItemDB',
+    primaryKey: 'id',
+    properties: {
+      id: {type: 'int'},
+      itemName: {type: 'string'},
+      expirationDate: {type: 'string'},
+      createdTimestamp: {type: 'date'}
+    }
+  }
+}
 
 class Item extends Component {
-  render() {
-    var expires = this.getDate(this.props.item.expiryDate);
+
+  render () {
+    var expires = this.getDate(this.props.item.expirationDate);
     if(this.daysToExpire(expires) < 7) {
       var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
 
-    return (
+    return(
       <View style={[styles.viewStyle, style] }>
-        <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
+        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
         <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
       </View>
     );
@@ -71,4 +86,5 @@ const styles = StyleSheet.create( {
   }
 });
 
+export const realm = new Realm({schema: [ItemDB]});
 export default Item;

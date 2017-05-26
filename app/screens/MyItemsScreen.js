@@ -11,6 +11,7 @@ class MyItemsScreen extends Component {
       <ViewContainer>
         <UpperContainer>
           <ListView />
+          <Text>{this.props.itemName} {this.props.expiryDate}</Text>
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={() => Actions.add() }>
