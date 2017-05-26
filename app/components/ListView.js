@@ -3,18 +3,16 @@ import {
   StyleSheet,
   ScrollView
 } from 'react-native';
-
-
 import StartScreen from './common/StartScreen';
 import Realm from 'realm'
-import { realm } from './Item'
+import { realm } from './Schema'
 import Item from './Item';
-import { ItemDB } from './Item';
+import { ItemDB } from './Schema';
 
 class ListView extends Component {
 
   getAllItems() {
-    let results = [ realm.objects('ItemDB')];
+    let results = [ realm.objects('ItemDB').sorted('expirationDate')];
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
 

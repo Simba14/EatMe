@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
-import { ItemDB } from '../components/Item';
-import { realm } from '../components/Item';
-
-let count = 0
+import { ItemDB } from '../components/Schema';
+import { realm } from '../components/Schema';
 
 class AddItemScreen extends Component {
   constructor() {
@@ -14,7 +12,6 @@ class AddItemScreen extends Component {
   }
 
   render() {
-
     const saveItem = () => {
       Actions.main();
       createItem();
@@ -32,8 +29,11 @@ class AddItemScreen extends Component {
     }
 
     const getId = () => {
-      count += 1
-      return count
+      let results = [ realm.objects('ItemDB')];
+      itemObject = results.map(x => Object.assign({}, x));
+      itemArray = Object.values(itemObject[0]);
+      count = itemArray.length + 1;
+      return count;
     }
 
     return (

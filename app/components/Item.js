@@ -3,20 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import moment from 'moment';
 import Realm from 'realm';
 
-export class ItemDB {
-  static get () { return realm.objects(ItemDB.schema.name) }
-  static schema = {
-    name: 'ItemDB',
-    primaryKey: 'id',
-    properties: {
-      id: {type: 'int'},
-      itemName: {type: 'string'},
-      expirationDate: {type: 'string'},
-      createdTimestamp: {type: 'date'}
-    }
-  }
-}
-
 class Item extends Component {
 
   render () {
@@ -86,5 +72,4 @@ const styles = StyleSheet.create( {
   }
 });
 
-export const realm = new Realm({schema: [ItemDB]});
 export default Item;
