@@ -6,15 +6,15 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 
 const RouterComponent = () => {
   return (
-    <Router sceneStyle={{ paddingTop: 20}}>
-      <Scene key='main' direction='leftToRight' hideNavBar='true' >
-        <Scene key='myItems' component={ MyItemsScreen } initial />
+    <Router navigationBarStyle={{ backgroundColor: '#FFFFFF', marginTop: 10 }}>
+      <Scene key='main' direction='leftToRight' >
+        <Scene key='MyItems' component={ MyItemsScreen } title="My Items" initial />
       </Scene>
       <Scene key='add' direction='vertical'>
-        <Scene key='addItem'  onLeft={() => Actions.main() }leftTitle='My Items' component={ AddItemScreen } />
+        <Scene key='AddItem'  onLeft={() => Actions.main() } title="Add Item" leftTitle='Back' component={ AddItemScreen } />
       </Scene>
     </Router>
-  );
-};
+  )
+}
 
 export default RouterComponent;

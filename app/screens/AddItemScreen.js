@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux'
-import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Header, Input } from '../components/common';
+import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 import { ItemDB } from '../components/Item';
-import uuid from 'uuid';
 import { realm } from '../components/Item';
 
 let count = 0
@@ -40,7 +39,6 @@ class AddItemScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
-          <Header headerText={'ADD ITEM'}/>
           <Text style={styles.subHeadingText}>Enter a name and its expiry date</Text>
           <Input
             placeholder="Avocado"

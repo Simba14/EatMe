@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "css-loader": "^0.28.2",
+    "moment": "^2.18.1",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
     "react-native-router-flux": "^3.38.0",

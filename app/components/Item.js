@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import moment from 'moment';
 import Realm from 'realm';
 
 export class ItemDB {
@@ -23,40 +20,68 @@ export class ItemDB {
 class Item extends Component {
 
   render () {
-    // const getItem = (id) => {
-    //   const item = realm.objectForPrimaryKey(ItemDB, id)
-    //   if(item === undefined) {
-    //     return 'Your item list is empty'
-    //   } else {
-    //     return item.itemName
-    //   }
-    // }
+    var expires = this.getDate(this.props.item.expiryDate);
+    if(this.daysToExpire(expires) < 7) {
+      var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
+    }
 
     const getAllItems = () => {
       let results = [ realm.objects('ItemDB')];
       array = results.map(x => Object.assign({}, x));
       console.log(array[0][0].itemName);
-      debugger;
     }
 
 
     return(
-      <View style={styles.viewStyle}>
-        <Text style={styles.textStyleName}>{getAllItems()}</Text>
+      <View style={[styles.viewStyle, style] }>
+      <Text style={ [styles.textStyleName, style] }> { this.props.item.name } </Text>
+      <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
       </View>
     );
-
   }
-}
 
-const styles = StyleSheet.create({
+  getDate(date) {
+    dateIntegers = [];
+    dateStrings = date.split(',');
+
+    dateIntegers.push(parseInt(dateStrings[0]));
+    dateIntegers.push(parseInt(dateStrings[1]) - 1);
+    dateIntegers.push(parseInt(dateStrings[2]) + 1);
+
+    return dateIntegers;
+  }
+
+  expiryString(date) {
+    return moment(date).fromNow();
+  }
+
+  daysToExpire(date) {
+    var today = moment();
+    var expires = moment(date);
+
+    return expires.diff(today, 'days')
+  }
+};
+
+const styles = StyleSheet.create( {
   viewStyle: {
     borderWidth: 0.5,
     borderColor: '#DEDEDE',
     marginLeft: 20,
     marginRight: 20,
     marginTop: 20,
-    height: 70
+    height: 70,
+    borderRadius: 2,
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1
+  },
+  mediumToExpire: {
+    backgroundColor: '#F7B767',
+  },
+  shortToExpire: {
+    backgroundColor: '#F1BABA',
   },
   textStyleName: {
     marginLeft: 10,
