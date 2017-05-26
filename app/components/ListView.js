@@ -12,7 +12,7 @@ class ListView extends Component {
       expiryDate: "2017,5,26"
     }, {
       name: "Avocado",
-      expiryDate: "2017,5,29"
+      expiryDate: "2017,5,05"
     }, {
       name: "Nuts",
       expiryDate: "2017,7,12"
@@ -31,12 +31,24 @@ class ListView extends Component {
     }, {
       name: "Apples",
       expiryDate: "2017,6,12"
-    }]
-  };
+    }] };
 
-  renderItems() {
-    return this.state.items.map(item => <Item key={item.name} item={item} />);
-  }
+
+
+
+  //     var sorted = someItems.sort(function(a, b) {
+  //       return new Date(a.expiryDate) - new Date(b.expiryDate)
+  //     });
+
+
+    renderItems() {
+      if (this.state.items.length > 0) {
+        return this.state.items.map(item => <Item key={item.name} item={item} />);
+      } else {
+        return ( <StartScreen /> );
+      }
+    }
+
 
   render() {
     return (
