@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableHighlight, Text } from 'react-native';
+import { View, StyleSheet, TouchableHighlight, Text, Alert } from 'react-native';
 import Camera from 'react-native-camera';
 
 class BarcodeScanner extends Component {
+
   render() {
     return (
       <View style={styles.container}>
@@ -11,10 +12,18 @@ class BarcodeScanner extends Component {
             this.camera = cam;
           }}
           style={styles.preview}
-          aspect={Camera.constants.Aspect.fill}>
+          aspect={Camera.constants.Aspect.fill}
+          onBarCodeRead={(data) => this.barcodeRead()}
+        >
         </Camera>
       </View>
     );
+  }
+
+  barcodeRead() {
+    Alert.alert(
+      'Barcode was read'
+    )
   }
 }
 
