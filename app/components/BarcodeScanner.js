@@ -3,27 +3,40 @@ import { View, StyleSheet, TouchableHighlight, Text, Alert } from 'react-native'
 import Camera from 'react-native-camera';
 
 class BarcodeScanner extends Component {
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Camera
-          ref={(cam) => {
-            this.camera = cam;
-          }}
-          style={styles.preview}
-          aspect={Camera.constants.Aspect.fill}
-          onBarCodeRead={(data) => this.barcodeRead()}
-        >
-        </Camera>
-      </View>
-    );
+  constructor() {
+    super();
+    this.state = {
+      showCamera: true,
+    }
   }
 
-  barcodeRead() {
+  render() {
+      if (this.state.showCamera) {
+        return (
+          <View style={styles.container}>
+            <Camera
+              ref={(cam) => {
+                this.camera = cam;
+              }}
+              style={styles.preview}
+              aspect={Camera.constants.Aspect.fill}
+              onBarCodeRead={(data) => this.barcodeRead(data)}
+            >
+            </Camera>
+          </View>
+        );
+      } else {
+        return (
+          <View></View>
+        );
+      }
+  }
+
+  barcodeRead(data) {
+    this.setState({showCamera: false});
     Alert.alert(
-      'Barcode was read'
-    )
+      "type:" + data.type + "data" + data.data
+    );
   }
 }
 
