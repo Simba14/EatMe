@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppState } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import { Provider } from 'react-redux'; //communication glue between react and redux
 import { createStore } from 'redux';
 import reducers from './reducers';
@@ -22,11 +22,12 @@ export default class App extends Component {
 
   handleAppStateChange(appState) {
     if (appState === 'background') {
+      let date = new Date(Date.now() + (2 * 1000));
+
       PushNotification.localNotificationSchedule({
         message: "Your Food Is Going To TERMINATE!",
-        date: new Date(Date.now() + (2 * 1000))
+        date,
       });
-      console.log('app is in background')
     }
   }
 
