@@ -3,6 +3,7 @@ import { Scene, Router } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
+import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 
 const RouterComponent = () => {
   return (
@@ -11,7 +12,18 @@ const RouterComponent = () => {
         <Scene key='MyItems' component={ MyItemsScreen } title="MY ITEMS" initial />
       </Scene>
       <Scene key='add' direction='vertical'>
-        <Scene key='AddItem'  onLeft={() => Actions.main() } title="ADD ITEM" leftTitle='Back' component={ AddItemScreen } />
+        <Scene
+          key='AddItem'
+          onLeft={() => Actions.main() }
+          onRight={() => Actions.barcode() }
+          title="ADD ITEM"
+          leftTitle='Back'
+          rightTitle='Camera'
+          component={ AddItemScreen }
+        />
+      </Scene>
+      <Scene key='barcode' direction='horizontal'>
+        <Scene key='BarcodeScanner' component={ BarcodeScannerScreen } />
       </Scene>
     </Router>
   )

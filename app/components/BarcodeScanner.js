@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TouchableHighlight } from 'react-native';
 import Camera from 'react-native-camera';
 
-class Camera extends Component {
+class BarcodeScanner extends Component {
 
   clickedMe() {
     alert("was touched");
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Camera;
+export default BarcodeScanner;

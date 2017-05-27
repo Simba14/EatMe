@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS, Alert } from 'react-native';
-import { Actions } from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
