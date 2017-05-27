@@ -70,6 +70,7 @@ class AddItemScreen extends Component {
             date={this.state.date}
             mode="date"
             onDateChange={(date)=>this.setState({date})}
+            minimumDate={this.state.date}
           />
         </UpperContainer>
         <LowerContainer>
