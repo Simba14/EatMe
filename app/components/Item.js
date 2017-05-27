@@ -7,11 +7,9 @@ class Item extends Component {
 
   render () {
     var expirationDate = this.props.item.expirationDate;
-
     if(this.daysToExpire(expirationDate) < 7) {
       var style = this.daysToExpire(expirationDate) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
-
 
     return(
       <View style={[styles.viewStyle, style] }>

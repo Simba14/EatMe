@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS } from 'react-native';
+import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
 
 class AddItemScreen extends Component {
-  // static defaultProps = {
-  //   date: new Date(),
-  // };
-constructor(props) {
-  super(props);
-  this.state = {
-    date: new Date(),
-  }
-}
 
-  // onDateChange = (date) => {
-  //   this.setState({date: date});
-  // };
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      itemName: "",
+    }
+  }
+
+  alert() {
+    if(this.state.itemName === "") {
+      Alert.alert(
+        'You stupid moron',
+        'Please enter a food item',
+      )
+    }
+  }
 
   render() {
 
     const saveItem = () => {
-      Actions.main();
-      createItem();
-    }
+      if(this.state.itemName === "") {
+        Alert.alert(
+          'You stupid moron',
+          'Please enter a food item',
+        )
+      } else {
+        Actions.main();
+        createItem();
+        }
+      }
 
     const createItem = () => {
       realm.write(() => {
