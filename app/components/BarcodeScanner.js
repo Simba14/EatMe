@@ -8,7 +8,7 @@ class BarcodeScanner extends Component {
     super();
     this.state = {
       showCamera: true,
-      scannedItem: ""
+      scannedItem: "loading..."
     }
   }
 
@@ -29,24 +29,19 @@ class BarcodeScanner extends Component {
         );
       } else {
         return (
-          <View></View>
+          <View>
+            <Text>{this.state.scannedItem}</Text>
+          </View>
         );
       }
   }
 
   requestItemInformation(data) {
-    var number = data.data;
     this.setState({showCamera: false});
-    axios.get('http://api.upcdatabase.org/json/128009a43963c119609bd223c9f249cf/' + number)
-      .then( (response) => Alert.alert( "Item: " + response.description ) );
+    var barcodeNumber = data.data;
+    axios.get('https://api.upcdatabase.org/json/128009a43963c119609bd223c9f249cf/' + barcodeNumber)
+      .then(response => this.setState({ scannedItem: response.data.description }));
   }
-
-  // barcodeRead(data) {
-  //   this.setState({showCamera: false});
-  //   Alert.alert(
-  //     "type:" + data.type + "data" + data.data
-  //   );
-  // }
 }
 
 const styles = StyleSheet.create({
