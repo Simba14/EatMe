@@ -9,7 +9,7 @@ const RouterComponent = () => {
   return (
     <Router navigationBarStyle={ styles.nav }>
       <Scene key='main' direction='leftToRight' >
-        <Scene key='MyItems' component={ MyItemsScreen } title="MY ITEMS" initial />
+        <Scene key='MyItems' onRight={() => Actions.recipes()} rightTitle='Recipes' component={ MyItemsScreen } title="MY ITEMS" initial />
       </Scene>
       <Scene key='recipes'>
         <Scene key='Recipes' component={ RecipesScreen } title='RECIPES'/>
@@ -17,7 +17,7 @@ const RouterComponent = () => {
       <Scene key='add' direction='horizontal'>
         <Scene key='AddItem'  onLeft={() => Actions.main() } title="ADD ITEM" leftTitle='Back' component={ AddItemScreen } />
       </Scene>
-      
+
     </Router>
   )
 }
