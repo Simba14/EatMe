@@ -4,6 +4,7 @@ import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../
 import ListView from '../components/ListView';
 import { realm } from '../components/Schema';
 import ItemDB from '../components/Schema';
+import PushController from '../components/PushController'
 
 class MyItemsScreen extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class MyItemsScreen extends Component {
             ADD ITEM
           </SubmitButton>
         </LowerContainer>
+        <PushController />
       </ViewContainer>
     );
   }
