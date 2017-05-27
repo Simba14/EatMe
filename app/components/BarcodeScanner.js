@@ -7,9 +7,10 @@ class BarcodeScanner extends Component {
   constructor() {
     super();
     this.state = {
-      showCamera: true,
+      // showCamera: true,
       scannedItem: "loading..."
     }
+    this.onBarCodeRead = _.throttle(this.onBarCodeRead, 500);
   }
 
   render() {
@@ -37,7 +38,7 @@ class BarcodeScanner extends Component {
   }
 
   requestItemInformation(data) {
-    this.setState({showCamera: false});
+    // this.setState({showCamera: false});
     var barcodeNumber = data.data;
     axios.get('https://api.upcdatabase.org/json/128009a43963c119609bd223c9f249cf/' + barcodeNumber)
       .then(response => this.setState({ scannedItem: response.data.description }));
