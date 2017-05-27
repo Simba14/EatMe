@@ -10,6 +10,7 @@ class MyItemsScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
+          <Text style={styles.title}>EAT ME SOON!</Text>
           <ListView />
           <Text>{this.props.itemName} {this.props.expiryDate}</Text>
         </UpperContainer>
@@ -22,5 +23,17 @@ class MyItemsScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  title: {
+    marginTop: 30,
+    marginBottom: 10,
+    textAlign: 'center',
+    fontSize: 18,
+    color: '#323232'
+  }
+});
+
+
 
 export default MyItemsScreen;
