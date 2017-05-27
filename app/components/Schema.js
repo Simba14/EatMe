@@ -9,7 +9,7 @@ export class ItemDB {
     properties: {
       id: {type: 'string'},
       itemName: {type: 'string'},
-      expirationDate: {type: 'string'},
+      expirationDate: {type: 'date'},
       createdTimestamp: {type: 'date'}
     }
   }

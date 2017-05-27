@@ -17,42 +17,27 @@ class Item extends Component {
       onPress: () => { this.props.deleteItem(this.props.item.id) }
     }];
 
-    var expires = this.getDate(this.props.item.expirationDate);
-    if(this.daysToExpire(expires) < 7) {
-      var style = this.daysToExpire(expires) < 3 ? styles.shortToExpire : styles.mediumToExpire;
+    var expirationDate = this.props.item.expirationDate;
+    if(this.daysToExpire(expirationDate) < 7) {
+      var style = this.daysToExpire(expirationDate) < 3 ? styles.shortToExpire : styles.mediumToExpire;
     }
 
     return(
       <Swipeout right={swipeoutBtns} style={styles.swipeStyle}>
-        <View style={[styles.viewStyle, style] }>
-          <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
-          <Text style={ [styles.textStyleDate, style] }> Expires: { this.expiryString(expires) } </Text>
-        </View>
+      <View style={[styles.viewStyle, style] }>
+        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
+        <Text style={ [styles.textStyleDate, style] }> Expires: { moment(expirationDate).fromNow() } </Text>
+      </View>
       </Swipeout>
     );
   }
 
-  getDate(date) {
-    dateIntegers = [];
-    dateStrings = date.split(',');
-
-    dateIntegers.push(parseInt(dateStrings[0]));
-    dateIntegers.push(parseInt(dateStrings[1]) - 1);
-    dateIntegers.push(parseInt(dateStrings[2]) + 1);
-
-    return dateIntegers;
-  }
-
-  expiryString(date) {
-    return moment(date).fromNow();
-  }
-
-  daysToExpire(date) {
+  daysToExpire(expirationDate) {
     var today = moment();
-    var expires = moment(date);
-
-    return expires.diff(today, 'days')
+    var expirationDate = moment(expirationDate);
+    return expirationDate.diff(today, 'days')
   }
+
 };
 
 const styles = StyleSheet.create( {
