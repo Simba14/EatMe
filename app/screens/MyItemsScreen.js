@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
 import ListView from '../components/ListView';
+import { realm } from '../components/Schema';
+import ItemDB from '../components/Schema';
 
 class MyItemsScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <ViewContainer>
         <UpperContainer>
-          <Text style={styles.title}>EAT ME SOON!</Text>
-          <ListView />
-          <Text>{this.props.itemName} {this.props.expiryDate}</Text>
+          <ListView deleteItem={this.deleteItem}/>
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={() => Actions.add() }>
@@ -22,18 +24,7 @@ class MyItemsScreen extends Component {
       </ViewContainer>
     );
   }
+
 }
-
-const styles = StyleSheet.create({
-  title: {
-    marginTop: 30,
-    marginBottom: 10,
-    textAlign: 'center',
-    fontSize: 18,
-    color: '#323232'
-  }
-});
-
-
 
 export default MyItemsScreen;

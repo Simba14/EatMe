@@ -4,24 +4,40 @@ import {
   ScrollView
 } from 'react-native';
 import StartScreen from './common/StartScreen';
-import Realm from 'realm'
-import { realm } from './Schema'
-import Item from './Item';
+import Realm from 'realm';
+import { realm } from './Schema';
 import { ItemDB } from './Schema';
+import Item from './Item';
 
 class ListView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { items: [] };
+    this.deleteItem = this.deleteItem.bind(this);
+  }
 
-  getAllItems() {
+  deleteItem(id) {
+    const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
+    realm.write(() => {
+      realm.delete(itemToDelete);
+    });
+    this.updateArray();
+  }
+
+  updateArray() {
     let results = [ realm.objects('ItemDB').sorted('expirationDate')];
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
-
-    return this.renderItems(itemArray);
+    this.setState({items: itemArray});
   }
 
-  renderItems(itemArray) {
-    if (itemArray.length > 0) {
-      return itemArray.map(item => <Item key={item.id} item={item} />);
+  componentWillMount() {
+    this.updateArray();
+  }
+
+  renderItems() {
+    if (this.state.items.length > 0) {
+      return this.state.items.map(item => <Item key={item.id} item={item} deleteItem={this.deleteItem}/>);
     } else {
       return ( <StartScreen /> );
     }
@@ -30,10 +46,11 @@ class ListView extends Component {
   render() {
     return (
       <ScrollView>
-        {this.getAllItems()}
+        {this.renderItems()}
       </ScrollView>
     );
   }
+
 };
 
 export default ListView;
