@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, Alert } from 'react-native';
 import Camera from 'react-native-camera';
 import axios from 'axios';
+import MyItemsScreen from '../screens/MyItemsScreen';
+import { Actions } from 'react-native-router-flux';
 
 class BarcodeScanner extends Component {
   constructor() {
     super();
     this.state = {
       showCamera: true,
+      barcodeNumber: "",
       scannedItem: ""
     }
   }
@@ -22,24 +25,26 @@ class BarcodeScanner extends Component {
               }}
               style={styles.preview}
               aspect={Camera.constants.Aspect.fill}
-              onBarCodeRead={(data) => this.requestItemInformation(data)}
+              onBarCodeRead={(data) => this.setState({ barcodeNumber: data.data, showCamera: false })}
             >
             </Camera>
           </View>
         );
       } else {
         return (
-          <View></View>
-        );
-      }
+        <View>
+          {Actions.main()}
+        </View>
+      );
+    }
   }
 
-  requestItemInformation(data) {
-    var number = data.data;
-    this.setState({showCamera: false});
-    axios.get('http://api.upcdatabase.org/json/128009a43963c119609bd223c9f249cf/' + number)
-      .then( (response) => Alert.alert( "Item: " + response.description ) );
-  }
+  // componentWillMount() {
+  //   // var number = .data;
+  //   this.setState({showCamera: false});
+  //   axios.get('http://api.upcdatabase.org/json/128009a43963c119609bd223c9f249cf/5449000131836')
+  //     .then( (response) => Alert.alert("Item: " + response.description) );
+  // }
 
   // barcodeRead(data) {
   //   this.setState({showCamera: false});
