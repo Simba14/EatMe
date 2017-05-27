@@ -15,21 +15,11 @@ class AddItemScreen extends Component {
     }
   }
 
-  alert() {
-    if(this.state.itemName === "") {
-      Alert.alert(
-        'You stupid moron',
-        'Please enter a food item',
-      )
-    }
-  }
-
   render() {
 
     const saveItem = () => {
       if(this.state.itemName === "") {
         Alert.alert(
-          'You stupid moron',
           'Please enter a food item',
         )
       } else {
@@ -66,12 +56,14 @@ class AddItemScreen extends Component {
             value={this.state.text}
             onChangeText={itemName => this.setState({ itemName })}
           />
-          <DatePickerIOS
-            date={this.state.date}
-            mode="date"
-            onDateChange={(date)=>this.setState({date})}
-            minimumDate={this.state.date}
-          />
+          <View style={styles.dateViewStyle}>
+            <DatePickerIOS
+              date={this.state.date}
+              mode="date"
+              onDateChange={(date)=>this.setState({date})}
+              minimumDate={this.state.date}
+            />
+        </View>
         </UpperContainer>
         <LowerContainer>
           <SubmitButton onPress={saveItem}>
@@ -93,6 +85,9 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     marginTop: 10
+  },
+  dateViewStyle: {
+    marginTop: 1
   }
 });
 
