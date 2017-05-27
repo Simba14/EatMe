@@ -17,6 +17,7 @@ const RouterComponent = () => {
       <Scene key='add' direction='horizontal'>
         <Scene key='AddItem'  onLeft={() => Actions.main() } title="ADD ITEM" leftTitle='Back' component={ AddItemScreen } />
       </Scene>
+      
     </Router>
   )
 }
