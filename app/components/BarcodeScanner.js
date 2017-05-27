@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, TouchableHighlight, Text } from 'react-native';
 import Camera from 'react-native-camera';
 
 class BarcodeScanner extends Component {
@@ -17,13 +17,11 @@ class BarcodeScanner extends Component {
           }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
-          <TouchableHighlight onPress={this.clickedMe.bind(this)}>
-            <View style={styles.cameraButton}></View>
-          </TouchableHighlight>
+          <Text style={styles.capture}>[CAPTURE]</Text>
         </Camera>
       </View>
     );
-  };
+  }
 
 }
 
