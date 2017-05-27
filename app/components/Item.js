@@ -8,7 +8,6 @@ import { Actions } from 'react-native-router-flux';
 class Item extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   render () {
     let swipeoutBtns = [{

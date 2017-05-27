@@ -8,15 +8,6 @@ import ItemDB from '../components/Schema';
 class MyItemsScreen extends Component {
   constructor(props) {
     super(props);
-    this.deleteItem = this.deleteItem.bind(this);
-  }
-
-  deleteItem(id) {
-    console.log("Here");
-    const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
-    realm.write(() => {
-      realm.delete(itemToDelete);
-    });
   }
 
   render() {
