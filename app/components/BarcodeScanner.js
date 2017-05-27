@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, Alert } from 'react-native';
 import Camera from 'react-native-camera';
+import axios from 'axios';
 
 class BarcodeScanner extends Component {
   constructor() {
     super();
     this.state = {
       showCamera: true,
+      scannedItem: ""
     }
   }
 
@@ -20,7 +22,7 @@ class BarcodeScanner extends Component {
               }}
               style={styles.preview}
               aspect={Camera.constants.Aspect.fill}
-              onBarCodeRead={(data) => this.barcodeRead(data)}
+              onBarCodeRead={(data) => this.requestItemInformation(data)}
             >
             </Camera>
           </View>
@@ -32,12 +34,19 @@ class BarcodeScanner extends Component {
       }
   }
 
-  barcodeRead(data) {
+  requestItemInformation(data) {
+    var number = data.data;
     this.setState({showCamera: false});
-    Alert.alert(
-      "type:" + data.type + "data" + data.data
-    );
+    axios.get('http://api.upcdatabase.org/json/128009a43963c119609bd223c9f249cf/' + number)
+      .then( (response) => Alert.alert( "Item: " + response.description ) );
   }
+
+  // barcodeRead(data) {
+  //   this.setState({showCamera: false});
+  //   Alert.alert(
+  //     "type:" + data.type + "data" + data.data
+  //   );
+  // }
 }
 
 const styles = StyleSheet.create({
