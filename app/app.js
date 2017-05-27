@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'; //communication glue between react and r
 import { createStore } from 'redux';
 import reducers from './reducers';
 import Router from './navigations/Router.js'
+import PushNotification from 'react-native-push-notification'
 
 export default class App extends Component {
   constructor(props) {
@@ -21,6 +22,10 @@ export default class App extends Component {
 
   handleAppStateChange(appState) {
     if (appState === 'background') {
+      PushNotification.localNotificationSchedule({
+        message: "Your Food Is Going To TERMINATE!",
+        date: new Date(Date.now() + (2 * 1000))
+      });
       console.log('app is in background')
     }
   }
