@@ -4,6 +4,6 @@ import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../
 import ListView from '../components/ListView';
 
 class RecipesScreen extends Component {
-
+  
 
 }
