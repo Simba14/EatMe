@@ -18,21 +18,27 @@ class BarcodeScanner extends Component {
       if (this.state.showCamera) {
         return (
           <View style={styles.container}>
-            <Camera
-              ref={(cam) => {
-                this.camera = cam;
-              }}
-              style={styles.preview}
-              aspect={Camera.constants.Aspect.fill}
-              onBarCodeRead={(data) => this.requestItemInformation(data)}
-            >
-              <Image style={styles.overlayStyle} source={require('../assets/overlayBarcode.png')} />
-            </Camera>
+            <View style={styles.cameraContainer}>
+              <Camera
+                ref={(cam) => {
+                  this.camera = cam;
+                }}
+                style={styles.cameraPreview}
+                aspect={Camera.constants.Aspect.fill}
+                onBarCodeRead={(data) => this.requestItemInformation(data)}
+              >
+                <Image style={styles.overlayStyle} source={require('../assets/overlayBarcode.png')} />
+              </Camera>
+            </View>
+            <View style={styles.tutorialImageContainer}>
+              <Image style={styles.tutorialImage} source={require('../assets/mobile_iphone_scan.png')} />
+            </View>
           </View>
         );
       } else {
         return (
-          <View>
+          <View style={styles.loadingContainer}>
+            <Image style={styles.loading} source={require('../assets/loading.gif')} />
             {this.checkResponse(this.state.scannedItem)}
           </View>
         );
@@ -56,27 +62,38 @@ class BarcodeScanner extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    alignItems: 'stretch'
   },
-  preview: {
+  cameraContainer: {
+    flex: 1
+  },
+  tutorialImageContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: -30,
-    marginBottom: 300,
+    alignItems: 'center'
+  },
+  tutorialImage: {
+    flex: 1,
+    width: 200,
+    height: 200,
+    opacity: 0.6,
+    marginTop: 40
+  },
+  cameraPreview: {
+    flex: 1
   },
   overlayStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: 65
   },
-  overlay: {
+  loadingContainer: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  loading: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 100,
-    width: 200,
-    borderWidth: 1,
-    borderColor: 'red',
-    borderStyle: 'dashed'
+    height: 200,
+    width: 200
   }
 });
 
