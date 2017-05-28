@@ -23,7 +23,13 @@ const RouterComponent = () => {
         />
       </Scene>
       <Scene key='barcode' direction='horizontal'>
-        <Scene key='BarcodeScanner' component={ BarcodeScannerScreen } />
+        <Scene
+          key='BarcodeScanner'
+          component={ BarcodeScannerScreen }
+          title="SCAN BARCODE"
+          onLeft={() => Actions.add() }
+          leftTitle="Back"
+        />
       </Scene>
     </Router>
   )

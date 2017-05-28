@@ -63,14 +63,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginTop: -30,
     marginBottom: 300,
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40
   }
 });
 
