@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS, Alert } from 'react-native';
-import { Actions } from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
 import { ItemDB } from '../components/Schema';
 import { realm } from '../components/Schema';
@@ -12,7 +12,7 @@ class AddItemScreen extends Component {
     super(props);
     this.state = {
       date: new Date(),
-      itemName: "",
+      itemName: this.props.scannedItem
     }
   }
 
@@ -46,7 +46,7 @@ class AddItemScreen extends Component {
           <Text style={styles.subHeadingText}>Enter a name and its expiry date</Text>
           <Input
             placeholder="Avocado"
-            value={this.state.text}
+            value={this.state.itemName}
             onChangeText={itemName => this.setState({ itemName })}
           />
           <View style={styles.dateViewStyle}>
