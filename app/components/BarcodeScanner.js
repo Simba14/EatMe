@@ -26,6 +26,7 @@ class BarcodeScanner extends Component {
               aspect={Camera.constants.Aspect.fill}
               onBarCodeRead={(data) => this.requestItemInformation(data)}
             >
+              <View style={styles.overlay}></View>
             </Camera>
           </View>
         );
@@ -60,9 +61,18 @@ const styles = StyleSheet.create({
   preview: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     marginTop: -30,
     marginBottom: 300,
+  },
+  overlay: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 100,
+    width: 200,
+    borderWidth: 1,
+    borderColor: 'red',
+    borderStyle: 'dashed'
   }
 });
 
