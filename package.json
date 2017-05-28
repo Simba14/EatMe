@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "css-loader": "^0.28.2",
+    "lodash": "^4.17.4",
     "moment": "^2.18.1",
+    "pluralize": "^5.0.0",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
     "react-native-push-notification": "^3.0.0",
