@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { AppState, Platform } from 'react-native';
-// import { Provider } from 'react-redux'; //communication glue between react and redux
-// import { createStore } from 'redux';
-// import reducers from './reducers';
 import Router from './navigations/Router.js'
 import PushNotification from 'react-native-push-notification'
 import Realm from 'realm';
-import { realm } from './components/Schema';
-import { ItemDB } from './components/Schema';
+import { realm, ItemDB } from './components/Schema';
 import moment from 'moment';
 import pluralize from 'pluralize';
 
@@ -23,10 +19,14 @@ export default class App extends Component {
 
   componentDidMount() {
     AppState.addEventListener('change', this.handleAppStateChange);
+    this.timer = setInterval(() => {
+      this.getExpiringItemsCount();
+    }, 4000);
   }
 
   componentWillMount() {
     AppState.removeEventListener('change', this.handleAppStateChange);
+    clearInterval(this.timer)
   }
 
   handleAppStateChange(appState) {
