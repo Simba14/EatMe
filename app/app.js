@@ -20,7 +20,7 @@ export default class App extends Component {
   componentDidMount() {
     AppState.addEventListener('change', this.handleAppStateChange);
     this.timer = setInterval(() => {
-      this.getExpiringItemsCount();
+      this.setState({ expiringItemsCount: this.getExpiringItemsCount() });
     }, 4000);
   }
 
@@ -36,7 +36,7 @@ export default class App extends Component {
 
       PushNotification.localNotificationSchedule({
         message: message,
-        date,
+        date: new Date(Date.now() + (2 * 1000)),
         repeatType: 'day'
       });
 
