@@ -1178,7 +1178,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.EatMe2;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.EatMe3;
 				PRODUCT_NAME = EatMe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -6,6 +6,7 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 import RecipesScreen from '../screens/MyItemsScreen';
 
+
 const RouterComponent = () => {
   return (
     <Router navigationBarStyle={ styles.nav }>
