@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "stretch",
     marginTop: -10,
-    marginBottom: 10
+    marginBottom: 15
   }
 });
 
