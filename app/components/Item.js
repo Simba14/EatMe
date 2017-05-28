@@ -43,32 +43,37 @@ class Item extends Component {
 const styles = StyleSheet.create( {
   viewStyle: {
     borderWidth: 0.5,
-    borderColor: '#DEDEDE',
-    height: 70,
+    borderColor: '#F7F7F7',
+    height: 90,
     borderRadius: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1
+    shadowOpacity: 0.1,
+    backgroundColor: '#9EE2CC',
   },
   mediumToExpire: {
-    backgroundColor: '#F7B767',
+    backgroundColor: '#F5CC99',
   },
   shortToExpire: {
     backgroundColor: '#F1BABA',
   },
   textStyleName: {
-    marginLeft: 10,
-    marginTop: 10
+    marginLeft: 12,
+    marginTop: 12,
+    fontSize: 16,
+    color: '#4A4A4A'
   },
   textStyleDate: {
-    marginLeft: 10,
-    marginTop: 10
+    marginLeft: 12,
+    marginTop: 12,
+    fontSize: 16,
+    color: '#4A4A4A'
   },
   swipeStyle: {
     backgroundColor: 'white',
     marginLeft: 20,
     marginRight: 20,
-    marginTop: 20
+    marginTop: 15
   }
 });
 
