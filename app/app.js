@@ -31,7 +31,7 @@ export default class App extends Component {
 
   handleAppStateChange(appState) {
     if (appState === 'background') {
-      let date = moment({hour: 15, minute: 0, seconds: 0});
+      let date = moment({hour: 9, minute: 0, seconds: 0});
       let message = this.getNotificationMessage();
 
       PushNotification.localNotificationSchedule({
