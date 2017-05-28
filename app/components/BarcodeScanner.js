@@ -32,9 +32,7 @@ class BarcodeScanner extends Component {
         );
       } else {
         return (
-          <View>
-            {this.checkResponse(this.state.scannedItem)}
-          </View>
+          <View>{this.checkResponse(this.state.scannedItem)}</View>
         );
       }
   }
@@ -77,6 +75,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'red',
     borderStyle: 'dashed'
+  },
+  loading: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 200,
+    width: 200
   }
 });
 
