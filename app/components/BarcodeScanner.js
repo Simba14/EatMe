@@ -32,7 +32,10 @@ class BarcodeScanner extends Component {
         );
       } else {
         return (
-          <View>{this.checkResponse(this.state.scannedItem)}</View>
+          <View style={styles.loadingContainer}>
+            <Image style={styles.loading} source={require('../assets/loading.gif')} />
+            {this.checkResponse(this.state.scannedItem)}
+          </View>
         );
       }
   }
@@ -75,6 +78,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'red',
     borderStyle: 'dashed'
+  },
+  loadingContainer: {
+    flex: 1,
+    alignItems: 'center'
   },
   loading: {
     justifyContent: 'center',
