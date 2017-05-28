@@ -38,6 +38,7 @@
 		55F64C831ED9B443002FA05D /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F64C701ED9B321002FA05D /* libRCTPushNotification.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		C302BF401ED98E010096C500 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C302BF281ED98DDC0096C500 /* libRCTCamera.a */; };
 		DE18676B1B64483F9C9869DF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E0C8A3A61243918A24DE13 /* libc++.tbd */; };
 		F221942E00454561A900CF10 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9AEC57430A45D2BB5F7B5D /* libRealmReact.a */; };
 /* End PBXBuildFile section */
@@ -253,6 +254,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		C302BF271ED98DDC0096C500 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C302BF201ED98DDC0096C500 /* RCTCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RCTCamera;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -283,6 +291,7 @@
 		75E0C8A3A61243918A24DE13 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		C302BF201ED98DDC0096C500 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		DA9AEC57430A45D2BB5F7B5D /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		FA127C8024A040D7AFC11BA0 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -300,6 +309,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C302BF401ED98E010096C500 /* libRCTCamera.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				55F64C831ED9B443002FA05D /* libRCTPushNotification.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -516,6 +526,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C302BF201ED98DDC0096C500 /* RCTCamera.xcodeproj */,
 				13B07FAE1A68108700A75B9A /* EatMe */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* EatMeTests */,
@@ -533,6 +544,14 @@
 				00E356EE1AD99517003FC87E /* EatMeTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* EatMe-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* EatMe-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C302BF211ED98DDC0096C500 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C302BF281ED98DDC0096C500 /* libRCTCamera.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -668,6 +687,10 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = C302BF211ED98DDC0096C500 /* Products */;
+					ProjectRef = C302BF201ED98DDC0096C500 /* RCTCamera.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -921,6 +944,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C302BF281ED98DDC0096C500 /* libRCTCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCamera.a;
+			remoteRef = C302BF271ED98DDC0096C500 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1055,7 +1085,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 2RUCCNZA6Q;
+=======
+				DEVELOPMENT_TEAM = 48N4KR5XAQ;
+>>>>>>> a789006889134670f49a4d91dbac33f1ef137041
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1086,7 +1120,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 2RUCCNZA6Q;
+=======
+				DEVELOPMENT_TEAM = 48N4KR5XAQ;
+>>>>>>> a789006889134670f49a4d91dbac33f1ef137041
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/realm/src/**",
@@ -1114,7 +1152,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 2RUCCNZA6Q;
+=======
+				DEVELOPMENT_TEAM = 48N4KR5XAQ;
+>>>>>>> a789006889134670f49a4d91dbac33f1ef137041
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/realm/src/**",
@@ -1127,7 +1169,11 @@
 					"-ObjC",
 					"-lc++",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.EatMe3;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.EatMe2;
+>>>>>>> a789006889134670f49a4d91dbac33f1ef137041
 				PRODUCT_NAME = EatMe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1138,7 +1184,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 2RUCCNZA6Q;
+=======
+				DEVELOPMENT_TEAM = 48N4KR5XAQ;
+>>>>>>> a789006889134670f49a4d91dbac33f1ef137041
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/realm/src/**",
@@ -1151,7 +1201,11 @@
 					"-ObjC",
 					"-lc++",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.EatMe3;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.EatMe2;
+>>>>>>> a789006889134670f49a4d91dbac33f1ef137041
 				PRODUCT_NAME = EatMe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
