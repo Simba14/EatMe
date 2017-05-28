@@ -31,13 +31,13 @@ export default class App extends Component {
 
   handleAppStateChange(appState) {
     if (appState === 'background') {
-      let date = new Date(Date.now() + (2 * 1000));
+      let date = moment({hour: 15, minute: 0, seconds: 0});
       let message = this.getNotificationMessage();
 
       PushNotification.localNotificationSchedule({
-        title: 'Your Food Is Going To TERMINATE!',
         message: message,
         date,
+        repeatType: 'day'
       });
 
     }
