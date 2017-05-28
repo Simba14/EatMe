@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableHighlight, Text, Alert } from 'react-native';
+import { View, StyleSheet, TouchableHighlight, Text, Alert, Image } from 'react-native';
 import Camera from 'react-native-camera';
 import axios from 'axios';
 import _ from 'lodash';
@@ -26,7 +26,7 @@ class BarcodeScanner extends Component {
               aspect={Camera.constants.Aspect.fill}
               onBarCodeRead={(data) => this.requestItemInformation(data)}
             >
-              <View style={styles.overlay}></View>
+              <Image style={styles.overlayStyle} source={require('../assets/overlayBarcode.png')} />
             </Camera>
           </View>
         );
@@ -64,6 +64,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: -30,
     marginBottom: 300,
+  },
+  overlayStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   overlay: {
     justifyContent: 'center',
