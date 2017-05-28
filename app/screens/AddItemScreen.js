@@ -16,6 +16,12 @@ class AddItemScreen extends Component {
     }
   }
 
+  adaptDate(date) {
+    date.setDate(date.getDate() + 1);
+    date.setHours(0,0,0,0);
+    this.setState({date: date});
+  }
+
   render() {
 
     const saveItem = () => {
@@ -25,11 +31,13 @@ class AddItemScreen extends Component {
         )
       } else {
         Actions.main();
+        this.adaptDate(this.state.date);
         createItem();
         }
       }
 
     const createItem = () => {
+      console.log(this.state.date);
       realm.write(() => {
         realm.create(ItemDB.schema.name, {
           id: uuid.v1(),
@@ -54,7 +62,8 @@ class AddItemScreen extends Component {
               date={this.state.date}
               mode="date"
               onDateChange={(date)=>this.setState({date})}
-              minimumDate={this.state.date}
+              // onDateChange={(date) => this.adaptDate(date)}
+              // minimumDate={this.state.date}
             />
         </View>
         </UpperContainer>
