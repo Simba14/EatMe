@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { ViewContainer, UpperContainer } from '../components/common'
+import { ViewContainer, UpperContainer } from '../components/common';
+import RecipeList from '../components/RecipeList';
 
 class RecipeGeneratorScreen extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { itemNames: [] };
-  }
 
   render() {
-
     return (
       <ViewContainer>
         <UpperContainer>
-          <Text>RECIPES!</Text>
-
+          <RecipeList />
         </UpperContainer>
       </ViewContainer>
     );
