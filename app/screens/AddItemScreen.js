@@ -12,7 +12,7 @@ class AddItemScreen extends Component {
     super(props);
     this.state = {
       date: new Date(),
-      itemName: "",
+      itemName: this.props.scannedItem
     }
   }
 
@@ -46,7 +46,7 @@ class AddItemScreen extends Component {
           <Text style={styles.subHeadingText}>Enter a name and its expiry date</Text>
           <Input
             placeholder="Avocado"
-            value={this.state.text}
+            value={this.state.itemName}
             onChangeText={itemName => this.setState({ itemName })}
           />
           <View style={styles.dateViewStyle}>

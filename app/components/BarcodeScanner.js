@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableHighlight, Text, Alert } from 'react-native'
 import Camera from 'react-native-camera';
 import axios from 'axios';
 import _ from 'lodash';
+import { Actions } from 'react-native-router-flux';
 
 class BarcodeScanner extends Component {
   constructor() {
@@ -31,10 +32,16 @@ class BarcodeScanner extends Component {
       } else {
         return (
           <View>
-            <Text>{this.state.scannedItem}</Text>
+            {this.checkResponse(this.state.scannedItem)}
           </View>
         );
       }
+  }
+
+  checkResponse(scannedItem) {
+    if(scannedItem !== ""){
+      Actions.add({scannedItem: scannedItem})
+    }
   }
 
   requestItemInformation(data) {
