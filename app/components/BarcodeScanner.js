@@ -84,6 +84,16 @@ const styles = StyleSheet.create({
   overlayStyle: {
     alignSelf: 'center',
     marginTop: 65
+  },
+  loadingContainer: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  loading: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 200,
+    width: 200
   }
 });
 
