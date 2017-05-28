@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
+import RecipeGeneratorScreen from '../screens/RecipeGeneratorScreen';
 
 const RouterComponent = () => {
   return (
@@ -29,6 +30,13 @@ const RouterComponent = () => {
           title="SCAN BARCODE"
           onLeft={() => Actions.add() }
           leftTitle="Back"
+        />
+      </Scene>
+      <Scene key='recipes' direction='horizontal'>
+        <Scene
+          key='RecipeGenerator'
+          component={ RecipeGeneratorScreen }
+          title='RECIPE GENERATOR'
         />
       </Scene>
     </Router>
