@@ -9,7 +9,7 @@ class RecipeGeneratorScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
-          <RecipeList />
+          <RecipeList  />
         </UpperContainer>
       </ViewContainer>
     );
