@@ -15,8 +15,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
+    let expiringItemsCount = this.getExpiringItemsCount()
     this.state = {
-      expiringItemsCount: this.getExpiringItemsCount()
+      expiringItemsCount: expiringItemsCount
     }
   }
 
@@ -31,12 +32,11 @@ export default class App extends Component {
   handleAppStateChange(appState) {
     if (appState === 'background') {
       let date = new Date(Date.now() + (2 * 1000));
-      let message = 'You have an ' + pluralize('item',2) + ' that will expire today';
-      console.log(message);
+      let message = 'You have ' + this.state.expiringItemsCount + " " + pluralize('item',2) + ' that will expire today';
 
       PushNotification.localNotificationSchedule({
         title: 'Your Food Is Going To TERMINATE!',
-        message: message, //+ this.getExiringItemsCount() + 'items that are set to expire',
+        message: message,
         date,
       });
 
@@ -47,7 +47,7 @@ export default class App extends Component {
     let results = [ realm.objects('ItemDB').sorted('expirationDate')];
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
-    return itemArray.length;
+    return itemArray.length.toString();
   }
 
   render() {
