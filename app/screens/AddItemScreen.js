@@ -25,7 +25,7 @@ class AddItemScreen extends Component {
   render() {
 
     const saveItem = () => {
-      if(this.state.itemName === "") {
+      if(this.state.itemName === undefined) {
         Alert.alert(
           'Please enter a food item',
         )
@@ -37,8 +37,7 @@ class AddItemScreen extends Component {
       }
 
     const createItem = () => {
-      console.log(this.state.date);
-      realm.write(() => {
+        realm.write(() => {
         realm.create(ItemDB.schema.name, {
           id: uuid.v1(),
           itemName: this.state.itemName,
@@ -62,8 +61,7 @@ class AddItemScreen extends Component {
               date={this.state.date}
               mode="date"
               onDateChange={(date)=>this.setState({date})}
-              // onDateChange={(date) => this.adaptDate(date)}
-              // minimumDate={this.state.date}
+              minimumDate={new Date()}
             />
         </View>
         </UpperContainer>
@@ -91,6 +89,5 @@ const styles = StyleSheet.create({
     marginTop: 1
   }
 });
-
 
 export default AddItemScreen;
