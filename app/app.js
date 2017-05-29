@@ -36,7 +36,7 @@ export default class App extends Component {
 
       PushNotification.localNotificationSchedule({
         message: message,
-        date: new Date(Date.now() + (2 * 1000)),
+        date: date,
         repeatType: 'day'
       });
 
