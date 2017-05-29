@@ -4,6 +4,7 @@ import Realm from 'realm';
 import { realm } from './Schema';
 import { ItemDB } from './Schema';
 import axios from 'axios';
+import Recipe from './Recipe';
 
 
 class RecipeList extends Component {
@@ -54,7 +55,7 @@ class RecipeList extends Component {
 
   renderRecipes() {
     return this.state.recipes.map(recipe =>
-      <Text key={recipe.recipe_id}>{recipe.title}</Text>
+      <Recipe key={recipe.recipe_id} recipeName={recipe.title} />
     );
   }
 
