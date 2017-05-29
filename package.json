@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native run-ios",
     "test": "jest"
   },
   "dependencies": {
@@ -11,8 +11,10 @@
     "css-loader": "^0.28.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
+    "pluralize": "^5.0.0",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
+    "react-native-push-notification": "^3.0.0",
     "react-native-camera": "^0.9.0",
     "react-native-router-flux": "^3.38.0",
     "react-native-swipeout": "^2.1.1",
