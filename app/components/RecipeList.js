@@ -11,25 +11,19 @@ class RecipeList extends Component {
     super(props);
     this.state = {
       items: ["Potatoes"],
-      recipe: []
+      recipe: [],
+      error: ""
     };
 
   }
 
-  componentWillMount() {
+  componentWillMount()  {
     // var item1 = this.state.items[0];
     axios.get('http://recipepuppy.com/api/?i=' + 'potato')
       .then(response => this.setState({ recipe: response.data.results[0].title }));
-      .catch(error => Alert.alert('no response...'));
   }
 
-  axios.get('/user?ID=12345')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+
 
   // getFoodItems() {
   //   let results = [ realm.objects('ItemDB').sorted('expirationDate')];
@@ -50,7 +44,9 @@ class RecipeList extends Component {
 
     return (
       <View>
-        {this.state.recipe[0]}
+        <Text>
+          {this.state.recipe}
+        </Text>
       </View>
     );
   };
