@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  ScrollView
-} from 'react-native';
+import { ScrollView } from 'react-native';
 import StartScreen from './common/StartScreen';
 import Realm from 'realm';
 import { realm } from './Schema';
@@ -51,7 +48,5 @@ class ListView extends Component {
     );
   }
 };
-
-
 
 export default ListView;
