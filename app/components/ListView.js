@@ -22,15 +22,12 @@ class ListView extends Component {
   }
 
   updateUsage(choice) {
-    let usage = [ realm.objects('UsageDB')];
-    usageObject = usage.map(x => Object.assign({}, x));
-    usageArray = Object.values(usageObject[0]);
+    usageArray = this.queryDatabase('UsageDB','id');
     let binnedCount = 0
     let eatenCount = 0
     if(usageArray[0] !== undefined){
       binnedCount = usageArray[0].binned
       eatenCount = usageArray[0].eaten
-    } else {
     }
 
     realm.write(() => {
@@ -42,10 +39,14 @@ class ListView extends Component {
     });
   }
 
+  queryDatabase(databaseName,sortMethod) {
+    let results = [ realm.objects(databaseName).sorted(sortMethod)];
+    resultsObject = results.map(x => Object.assign({}, x));
+    return resultsArray = Object.values(resultsObject[0]);
+  }
+
   updateArray() {
-    let results = [ realm.objects('ItemDB').sorted('expirationDate')];
-    itemObject = results.map(x => Object.assign({}, x));
-    itemArray = Object.values(itemObject[0]);
+    itemArray = this.queryDatabase('ItemDB','expirationDate');
     this.setState({items: itemArray});
   }
 
