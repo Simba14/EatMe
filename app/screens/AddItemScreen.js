@@ -76,7 +76,6 @@ class AddItemScreen extends Component {
 
 const styles = StyleSheet.create({
   subHeadingText: {
-    justifyContent: 'center',
     alignSelf: 'center',
     color: '#323232',
     fontSize: 18,
