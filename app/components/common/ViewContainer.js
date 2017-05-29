@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "stretch",
     marginTop: 90,
-    marginBottom: 5
   }
 });
 

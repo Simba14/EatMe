@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
-import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
+import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, BottomNavContainer } from '../components/common';
 import { NavItem } from '../components/common/NavItem';
 import ListView from '../components/ListView';
 import { realm } from '../components/Schema';
@@ -21,9 +21,15 @@ class MyItemsScreen extends Component {
           <SubmitButton onPress={() => Actions.add() }>
             ADD ITEM
           </SubmitButton>
-          <NavItem>
-          </NavItem>
         </LowerContainer>
+        <BottomNavContainer>
+          <NavItem>
+            My Items
+          </NavItem>
+          <NavItem>
+            Recipes
+          </NavItem>
+        </BottomNavContainer>
       </ViewContainer>
     );
   }
