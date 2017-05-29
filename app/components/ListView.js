@@ -18,6 +18,17 @@ class ListView extends Component {
       realm.delete(itemToDelete);
     });
     this.updateArray();
+    this.updateUsage(choice);
+  }
+
+  updateUsage(choice) {
+    if(choice === "binned"){
+      realm.write(() => {
+        console.log(realm.create('UsageDB', {id: 1, binned: 1}, true));
+      });
+    } else {
+
+    }
   }
 
   updateArray() {
