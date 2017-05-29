@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  ScrollView
-} from 'react-native';
+import { ScrollView } from 'react-native';
 import StartScreen from './common/StartScreen';
 import Realm from 'realm';
-import { realm } from './Schema';
-import { ItemDB } from './Schema';
+import { itemDatabase, realm } from './Schema';
 import Item from './Item';
 
 class ListView extends Component {
@@ -16,18 +12,41 @@ class ListView extends Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-  deleteItem(id) {
+  deleteItem(id, choice) {
     const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
     realm.write(() => {
       realm.delete(itemToDelete);
     });
     this.updateArray();
+    this.updateUsage(choice);
+  }
+
+  updateUsage(choice) {
+    usageArray = this.queryDatabase('UsageDB','id');
+    let binnedCount = 0
+    let eatenCount = 0
+    if(usageArray[0] !== undefined){
+      binnedCount = usageArray[0].binned
+      eatenCount = usageArray[0].eaten
+    }
+
+    realm.write(() => {
+      if(choice === "binned"){
+        realm.create('UsageDB', {id: 1, binned: binnedCount+1}, true);
+      } else {
+        realm.create('UsageDB', {id: 1, eaten: eatenCount+1}, true);
+      }
+    });
+  }
+
+  queryDatabase(databaseName,sortMethod) {
+    let results = [ realm.objects(databaseName).sorted(sortMethod)];
+    resultsObject = results.map(x => Object.assign({}, x));
+    return resultsArray = Object.values(resultsObject[0]);
   }
 
   updateArray() {
-    let results = [ realm.objects('ItemDB').sorted('expirationDate')];
-    itemObject = results.map(x => Object.assign({}, x));
-    itemArray = Object.values(itemObject[0]);
+    itemArray = this.queryDatabase('ItemDB','expirationDate');
     this.setState({items: itemArray});
   }
 
@@ -50,7 +69,6 @@ class ListView extends Component {
       </ScrollView>
     );
   }
-
 };
 
 export default ListView;

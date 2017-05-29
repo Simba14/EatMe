@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
 import ListView from '../components/ListView';
-import PushController from '../components/PushController'
+import { itemDatabase, realm } from '../components/Schema';
+import PushController from '../components/PushController';
 
 class MyItemsScreen extends Component {
   constructor(props) {
@@ -24,7 +25,6 @@ class MyItemsScreen extends Component {
       </ViewContainer>
     );
   }
-
 }
 
 export default MyItemsScreen;

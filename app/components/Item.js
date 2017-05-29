@@ -11,10 +11,16 @@ class Item extends Component {
   }
   render () {
     let swipeoutBtns = [{
-      text: 'Delete',
+      text: 'Binned',
       backgroundColor: 'red',
       underlayColor: 'grey',
-      onPress: () => { this.props.deleteItem(this.props.item.id) }
+      onPress: () => { this.props.deleteItem(this.props.item.id, 'binned') }
+      },
+    {
+      text: 'Eaten',
+      backgroundColor: 'green',
+      underlayColor: 'grey',
+      onPress: () => { this.props.deleteItem(this.props.item.id, 'eaten') }
     }];
 
     var expirationDate = this.props.item.expirationDate;
@@ -24,10 +30,10 @@ class Item extends Component {
 
     return(
       <Swipeout right={swipeoutBtns} style={styles.swipeStyle}>
-      <View style={[styles.viewStyle, style] }>
-        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
-        <Text style={ [styles.textStyleDate, style] }> Expires: { moment(expirationDate).fromNow() } </Text>
-      </View>
+        <View style={[styles.textContainer, style] }>
+          <Text style={ styles.textStyleName }> { this.props.item.itemName } </Text>
+          <Text style={ styles.textStyleDate }> Expires: { moment(expirationDate).fromNow() } </Text>
+        </View>
       </Swipeout>
     );
   }
@@ -41,39 +47,32 @@ class Item extends Component {
 };
 
 const styles = StyleSheet.create( {
-  viewStyle: {
-    borderWidth: 0.5,
-    borderColor: '#F7F7F7',
-    height: 90,
-    borderRadius: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+  swipeStyle: {
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    width: 360,
+    marginBottom: 5
+  },
+  textContainer: {
+    height: 70,
     backgroundColor: '#9EE2CC',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    padding: 8
   },
   mediumToExpire: {
-    backgroundColor: '#F5CC99',
+    backgroundColor: '#F5CC99'
   },
   shortToExpire: {
-    backgroundColor: '#F1BABA',
+    backgroundColor: '#F1BABA'
   },
   textStyleName: {
-    marginLeft: 12,
-    marginTop: 12,
-    fontSize: 16,
+    fontSize: 15,
     color: '#4A4A4A'
   },
   textStyleDate: {
-    marginLeft: 12,
-    marginTop: 12,
-    fontSize: 16,
+    fontSize: 15,
     color: '#4A4A4A'
-  },
-  swipeStyle: {
-    backgroundColor: 'white',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 15
   }
 });
 
