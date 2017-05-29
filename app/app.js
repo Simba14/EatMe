@@ -30,7 +30,7 @@ export default class App extends Component {
   }
 
   handleAppStateChange(appState) {
-    if (appState === 'background') {
+    if (appState === 'background' && this.state.expiringItemsCount > 0) {
       let date = moment({hour: 9, minute: 0, seconds: 0});
       let message = this.getNotificationMessage();
 
