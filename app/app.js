@@ -36,7 +36,7 @@ export default class App extends Component {
 
       PushNotification.localNotificationSchedule({
         message: message,
-        date: date,
+        date: new Date(Date.now() + (2 * 1000)),
         repeatType: 'day'
       });
 
@@ -44,7 +44,9 @@ export default class App extends Component {
   }
 
   getExpiringItemsCount() {
-    let results = [ realm.objects('ItemDB').sorted('expirationDate')];
+    specific_day = new Date
+    next_day = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
+    let results = [ realm.objects('ItemDB').filtered('expirationDate >= $0 && expirationDate < $1', specific_day, next_day)];
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
     return itemArray.length;
