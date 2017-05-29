@@ -36,8 +36,8 @@ class AddItemScreen extends Component {
       }
 
     const createItem = () => {
-        realm.write(() => {
-        realm.create(Database.schema.name, {
+      realm.write(() => {
+        let newItem = realm.create('ItemDB', {
           id: uuid.v1(),
           itemName: this.state.itemName,
           expirationDate: this.state.date,
@@ -45,6 +45,11 @@ class AddItemScreen extends Component {
         });
       });
     }
+      // realm.create(Database.schema.name, {
+      //   id: uuid.v1(),
+      //   itemName: this.state.itemName,
+      //   expirationDate: this.state.date,
+      //   createdTimestamp: new Date()
 
     return (
       <ViewContainer>
