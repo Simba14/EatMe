@@ -37,6 +37,8 @@ const RouterComponent = () => {
           key='RecipeGenerator'
           component={ RecipeGeneratorScreen }
           title='RECIPE GENERATOR'
+          onLeft={() => Actions.main()}
+          leftTitle="Back"
         />
       </Scene>
     </Router>
