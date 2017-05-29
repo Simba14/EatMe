@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, BottomNavContainer } from '../components/common';
 import { NavItem } from '../components/common/NavItem';
@@ -23,10 +24,10 @@ class MyItemsScreen extends Component {
           </SubmitButton>
         </LowerContainer>
         <BottomNavContainer>
-          <NavItem>
+          <NavItem imagePath={ require('../assets/myitemsicon.png')}>
             My Items
           </NavItem>
-          <NavItem>
+          <NavItem imagePath={ require('../assets/recipeicon.png')}>
             Recipes
           </NavItem>
         </BottomNavContainer>
