@@ -11,7 +11,7 @@ class RecipeList extends Component {
     super(props);
     this.state = {
       items: [],
-      recipe: [],
+      recipes: [],
     };
 
   }
@@ -27,7 +27,7 @@ class RecipeList extends Component {
       Alert.alert("You have no item silly!")
     }
     axios.get('http://recipepuppy.com/api/?i=' + items)
-      .then(response => this.setState({ recipe: response.data.results[0].title }));
+      .then(response => this.setState({ recipes: response.data.results }));
   }
 
 
@@ -62,15 +62,18 @@ class RecipeList extends Component {
     return this.state.items.length === 1;
   }
 
+  renderRecipes() {
+    return this.state.recipes.map(recipe =>
+      <Text>{recipe.title}</Text>
+    );
+  }
 
 
   render() {
 
     return (
       <View>
-        <Text>
-          {this.state.recipe}
-        </Text>
+          {this.renderRecipes()}
       </View>
     );
   };
