@@ -10,35 +10,40 @@ class RecipeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: ["Potatoes"],
+      items: [],
       recipe: [],
-      error: ""
     };
 
   }
 
-  componentWillMount()  {
-    // var item1 = this.state.items[0];
-    axios.get('http://recipepuppy.com/api/?i=' + 'potato')
+  componentDidMount()  {
+    var item1 = this.state.items[0].itemName + ',' + this.state.items[1].itemName + ',' + this.state.items[2].itemName;
+    axios.get('http://recipepuppy.com/api/?i=' + item1)
       .then(response => this.setState({ recipe: response.data.results[0].title }));
   }
 
 
+  //
+  componentWillMount() {
+    let results = [ realm.objects('ItemDB').sorted('expirationDate')];
+    itemObject = results.map(x => Object.assign({}, x));
+    itemArray = Object.values(itemObject[0]);
+    console.log(itemArray[0].itemName)
+    this.setState({ items: itemArray })
+  }
 
-  // getFoodItems() {
-  //   let results = [ realm.objects('ItemDB').sorted('expirationDate')];
-  //   itemObject = results.map(x => Object.assign({}, x));
-  //   itemArray = Object.values(itemObject[0]);
-  //   this.setState({ items: itemArray })
-  // }
   //
   // componentWillMount() {
   //   this.getFoodItems();
   // }
 
-  // renderRecipe() {
-  //   return this.state.recipe;
+  // renderItems() {
+  //   return this.state.items.map(item =>
+  //   <Text> {item.itemName} </Text>);
   // }
+
+
+
 
   render() {
 
