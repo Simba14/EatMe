@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, Image, Text, Alert, ScrollView } from 'react-native';
+import { View, Image, Text, Alert, ScrollView, TouchableHighlight, WebView } from 'react-native';
 import Realm from 'realm';
 import { realm } from './Schema';
 import { ItemDB } from './Schema';
 import axios from 'axios';
 import Recipe from './Recipe';
 import NoRecipes from './common/NoRecipes';
+// import RecipeWebView from './RecipeWebView';
 
 
 class RecipeList extends Component {
@@ -66,7 +67,7 @@ class RecipeList extends Component {
     return (
       <ScrollView>
         {this.loading()}
-        {this.renderRecipes()}
+          {this.renderRecipes()}
       </ScrollView>
     );
   };

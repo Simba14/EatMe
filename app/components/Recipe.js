@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image,TouchableOpacity, WebView, Linking } from 'react-native';
 
 class Recipe extends Component {
 
+
   render() {
     return(
-      <View style={styles.recipeViewStyle}>
-        <View style={styles.imageViewStyle}>
-          <Image source={{ uri: this.props.recipe.image_url}} style={styles.imageStyle} />
+      <TouchableOpacity onPress={() => this.renderRecipeWebView(this.props.recipe.source_url)}>
+        <View style={styles.recipeViewStyle}>
+          <View style={styles.imageViewStyle}>
+            <Image source={{ uri: this.props.recipe.image_url}} style={styles.imageStyle} />
+          </View>
+          <View style={styles.titleViewStyle}>
+            <Text style={styles.titleStyle}> {this.props.recipe.title}</Text>
+            <Text style={styles.publisherStyle}> Publisher: {this.props.recipe.publisher} </Text>
+          </View>
         </View>
-        <View style={styles.titleViewStyle}>
-          <Text style={styles.titleStyle}> {this.props.recipe.title}</Text>
-          <Text style={styles.publisherStyle}> Publisher: {this.props.recipe.publisher} </Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   };
+
+  renderRecipeWebView(url) {
+    Linking.openURL(url);
+  }
 }
 
 const styles = {
