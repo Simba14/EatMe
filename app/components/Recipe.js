@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 
 class Recipe extends Component {
 
   render() {
     return(
       <View style={styles.recipeViewStyle}>
-        <Text style={styles.textStyle}> {this.props.recipeName}</Text>
+        <Image source={{ uri: this.props.recipe.image_url}} style={styles.imageStyle} />
+        <Text style={styles.textStyle}> {this.props.recipe.title}</Text>
       </View>
     );
   };
@@ -16,7 +17,7 @@ const styles = {
   recipeViewStyle: {
     borderWidth: 0.5,
     borderColor: '#DEDEDE',
-    height: 70,
+    height: 150,
     borderRadius: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -25,6 +26,12 @@ const styles = {
   textStyle: {
     marginLeft: 10,
     marginTop: 10
+  },
+  imageStyle: {
+    height: 60,
+    width: 30,
+    flex: 1,
+    width: null
   }
 }
 

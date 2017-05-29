@@ -55,7 +55,7 @@ class RecipeList extends Component {
 
   renderRecipes() {
     return this.state.recipes.map(recipe =>
-      <Recipe key={recipe.recipe_id} recipeName={recipe.title} />
+      <Recipe key={recipe.recipe_id} recipe={recipe} />
     );
   }
 
