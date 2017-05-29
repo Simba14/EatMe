@@ -1,12 +1,12 @@
-import React { Component }, from 'react';
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 class Recipe extends Component {
 
   render() {
     return(
-      <View>
-        <Text> {this.props.recipeName}</Text>
+      <View style={styles.recipeViewStyle}>
+        <Text style={styles.textStyle}> {this.props.recipeName}</Text>
       </View>
     );
   };

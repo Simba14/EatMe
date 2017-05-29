@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Alert } from 'react-native';
+import { Text, Alert, ScrollView } from 'react-native';
 import Realm from 'realm';
 import { realm } from './Schema';
 import { ItemDB } from './Schema';
@@ -61,9 +61,9 @@ class RecipeList extends Component {
 
   render() {
     return (
-      <View>
+      <ScrollView>
         {this.renderRecipes()}
-      </View>
+      </ScrollView>
     );
   };
 
