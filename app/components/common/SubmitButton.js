@@ -18,23 +18,18 @@ const styles = StyleSheet.create({
   },
   linearGradient: {
     flex: 1,
-    alignSelf: 'stretch',
     justifyContent: 'center',
     borderRadius: 50,
-    backgroundColor: '#14C68A',
     marginLeft: 20,
     marginRight: 20
   },
   buttonText: {
-    justifyContent: 'center',
-    alignSelf: 'center',
+    fontSize: 18,
     fontWeight: '500',
     letterSpacing: 1,
-    fontSize: 18,
     textAlign: 'center',
-    margin: 10,
     color: '#ffffff',
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent'
   }
 });
 

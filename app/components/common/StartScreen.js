@@ -5,48 +5,32 @@ import { UpperContainer } from './UpperContainer';
 const StartScreen = () => {
   return (
     <View style={styles.viewStyle}>
-      <UpperContainer>
-        <Text style={styles.title}>Get Started</Text>
-        <Text style={styles.body}>Add your first item and start tracking your food</Text>
-        <View style={styles.img}>
-          <Image
-            source={ require('../../assets/downarrow.png')}
-            />
-        </View>
-      </UpperContainer>
+      <Text style={styles.title}>Get Started</Text>
+      <Text style={styles.body}>Add your first item and start tracking your food</Text>
+      <Image source={ require('../../assets/downarrow.png')} />
     </View>
   )
-
 }
 
 const styles = {
   viewStyle: {
     flex: 1,
-    justifyContent: 'center',
+    height: 275,
+    marginTop: 120,
+    justifyContent: 'space-between',
     alignItems: 'center'
-
   },
   title: {
-    marginTop: 90,
-    textAlign: 'center',
     fontSize: 32,
-    fontFamily: 'System',
     color: '#323232'
   },
   body: {
-    marginTop: 50,
     marginLeft: 30,
     marginRight: 30,
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'System',
     color: '#323232'
   },
-  img: {
-    marginTop: 70,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
 }
 
 export default StartScreen;
