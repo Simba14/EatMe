@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import StartScreen from './common/StartScreen';
 import Realm from 'realm';
-import { Database, realm } from './Schema';
+import { itemDatabase, realm } from './Schema';
 import Item from './Item';
 
 class ListView extends Component {

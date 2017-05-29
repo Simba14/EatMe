@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Realm from 'realm';
 
-class Database {}
-Database.schema = {
+class itemDatabase {}
+itemDatabase.schema = {
   name: 'ItemDB',
   primaryKey: 'id',
   properties: {
@@ -13,4 +13,4 @@ Database.schema = {
   }
 };
 
-export const realm = new Realm({schema: [Database]});
+export const realm = new Realm({schema: [itemDatabase]});
