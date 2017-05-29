@@ -50,7 +50,8 @@ class ListView extends Component {
       </ScrollView>
     );
   }
-
 };
+
+
 
 export default ListView;

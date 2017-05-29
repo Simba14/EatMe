@@ -23,12 +23,12 @@ class Item extends Component {
     }
 
     return(
-      <Swipeout right={swipeoutBtns} style={styles.swipeStyle}>
-      <View style={[styles.viewStyle, style] }>
-        <Text style={ [styles.textStyleName, style] }> { this.props.item.itemName } </Text>
-        <Text style={ [styles.textStyleDate, style] }> Expires: { moment(expirationDate).fromNow() } </Text>
-      </View>
-      </Swipeout>
+      // <Swipeout right={swipeoutBtns} style={styles.swipeStyle}>
+        <View style={[styles.textContainer, style] }>
+          <Text style={ styles.textStyleName }> { this.props.item.itemName } </Text>
+          <Text style={ styles.textStyleDate }> Expires: { moment(expirationDate).fromNow() } </Text>
+        </View>
+      // </Swipeout>
     );
   }
 
@@ -41,15 +41,12 @@ class Item extends Component {
 };
 
 const styles = StyleSheet.create( {
-  viewStyle: {
-    borderWidth: 0.5,
-    borderColor: '#F7F7F7',
-    height: 90,
-    borderRadius: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+  textContainer: {
+    height: 100,
     backgroundColor: '#9EE2CC',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    marginBottom: 1
   },
   mediumToExpire: {
     backgroundColor: '#F5CC99',
@@ -58,22 +55,19 @@ const styles = StyleSheet.create( {
     backgroundColor: '#F1BABA',
   },
   textStyleName: {
-    marginLeft: 12,
-    marginTop: 12,
-    fontSize: 16,
-    color: '#4A4A4A'
+    fontSize: 15,
+    color: '#4A4A4A',
+    borderColor: 'blue',
+    borderWidth: 1
   },
   textStyleDate: {
-    marginLeft: 12,
-    marginTop: 12,
-    fontSize: 16,
-    color: '#4A4A4A'
+    fontSize: 15,
+    color: '#4A4A4A',
+    borderColor: 'black',
+    borderWidth: 1
   },
   swipeStyle: {
     backgroundColor: 'white',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 15
   }
 });
 
