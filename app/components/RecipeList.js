@@ -5,6 +5,7 @@ import { realm } from './Schema';
 import { ItemDB } from './Schema';
 import axios from 'axios';
 import Recipe from './Recipe';
+import NoRecipes from './common/NoRecipes';
 
 
 class RecipeList extends Component {
@@ -25,14 +26,13 @@ class RecipeList extends Component {
     } else if (this._oneItem()) {
       var items = this.state.items[0].itemName;
     } else {
-      Alert.alert("You have no item silly!")
+      this.renderNoRecipes
     }
     axios.get('http://food2fork.com/api/search?key=b2eb251598eb1b9ffa9244ceab691efa&q=' + items)
       .then(response => this.setState({ recipes: response.data.recipes }));
   }
 
 
-  //
   componentWillMount() {
     let results = [ realm.objects('ItemDB').sorted('expirationDate')];
     itemObject = results.map(x => Object.assign({}, x));
@@ -40,23 +40,14 @@ class RecipeList extends Component {
     this.setState({ items: itemArray })
   }
 
-
-
-  //
-  // componentWillMount() {
-  //   this.getFoodItems();
-  // }
-
-  // renderItems() {
-  //   return this.state.items.map(item =>
-  //   <Text> {item.itemName} </Text>);
-  // }
-
-
   renderRecipes() {
-    return this.state.recipes.map(recipe =>
-      <Recipe key={recipe.recipe_id} recipe={recipe} />
-    );
+    if (this.state.items.length > 0) {
+      return this.state.recipes.map(recipe =>
+        <Recipe key={recipe.recipe_id} recipe={recipe} />
+      );
+    } else {
+      return <NoRecipes />
+    }
   }
 
   render() {
@@ -66,7 +57,6 @@ class RecipeList extends Component {
       </ScrollView>
     );
   };
-
 
 
   _threeOrMoreItems() {
