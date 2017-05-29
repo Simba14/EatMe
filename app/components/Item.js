@@ -42,15 +42,17 @@ class Item extends Component {
 
 const styles = StyleSheet.create( {
   swipeStyle: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    width: 360,
+    marginBottom: 5
   },
   textContainer: {
     height: 70,
     backgroundColor: '#9EE2CC',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    marginBottom: 1,
-    padding: 7
+    padding: 8
   },
   mediumToExpire: {
     backgroundColor: '#F5CC99'
