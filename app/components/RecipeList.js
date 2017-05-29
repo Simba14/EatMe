@@ -19,15 +19,15 @@ class RecipeList extends Component {
   componentDidMount()  {
     if (this._threeOrMoreItems()) {
       var items = this.state.items[0].itemName + ',' + this.state.items[1].itemName + ',' + this.state.items[2].itemName;
-    } else if (this.twoItems()) {
+    } else if (this._twoItems()) {
       var items = this.state.items[0].itemName + ',' + this.state.items[1].itemName;
     } else if (this._oneItem()) {
       var items = this.state.items[0].itemName;
     } else {
       Alert.alert("You have no item silly!")
     }
-    axios.get('http://recipepuppy.com/api/?i=' + items)
-      .then(response => this.setState({ recipes: response.data.results }));
+    axios.get('http://food2fork.com/api/search?key=b2eb251598eb1b9ffa9244ceab691efa&q=' + items)
+      .then(response => this.setState({ recipes: response.data.recipes }));
   }
 
 
@@ -36,9 +36,10 @@ class RecipeList extends Component {
     let results = [ realm.objects('ItemDB').sorted('expirationDate')];
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
-    console.log(itemArray[0].itemName)
     this.setState({ items: itemArray })
   }
+
+
 
   //
   // componentWillMount() {
@@ -50,33 +51,32 @@ class RecipeList extends Component {
   //   <Text> {item.itemName} </Text>);
   // }
 
-  _threeOrMoreItems() {
-    return this.state.items.length >= 3;
-  }
-
-  _twoItems() {
-    return this.state.items.length === 2;
-  }
-
-  _oneItem() {
-    return this.state.items.length === 1;
-  }
 
   renderRecipes() {
     return this.state.recipes.map(recipe =>
-      <Text>{recipe.title}</Text>
+      <Text key={recipe.recipe_id}>{recipe.title}</Text>
     );
   }
 
-
   render() {
-
     return (
       <View>
-          {this.renderRecipes()}
+        {this.renderRecipes()}
       </View>
     );
   };
+
+
+
+  _threeOrMoreItems() {
+    return this.state.items.length >= 3;
+  }
+  _twoItems() {
+    return this.state.items.length === 2;
+  }
+  _oneItem() {
+    return this.state.items.length === 1;
+  }
 }
 
 export default RecipeList;
