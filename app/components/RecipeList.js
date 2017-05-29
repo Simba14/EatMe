@@ -17,8 +17,16 @@ class RecipeList extends Component {
   }
 
   componentDidMount()  {
-    var item1 = this.state.items[0].itemName + ',' + this.state.items[1].itemName + ',' + this.state.items[2].itemName;
-    axios.get('http://recipepuppy.com/api/?i=' + item1)
+    if (this._threeOrMoreItems()) {
+      var items = this.state.items[0].itemName + ',' + this.state.items[1].itemName + ',' + this.state.items[2].itemName;
+    } else if (this.twoItems()) {
+      var items = this.state.items[0].itemName + ',' + this.state.items[1].itemName;
+    } else if (this._oneItem()) {
+      var items = this.state.items[0].itemName;
+    } else {
+      Alert.alert("You have no item silly!")
+    }
+    axios.get('http://recipepuppy.com/api/?i=' + items)
       .then(response => this.setState({ recipe: response.data.results[0].title }));
   }
 
@@ -42,6 +50,17 @@ class RecipeList extends Component {
   //   <Text> {item.itemName} </Text>);
   // }
 
+  _threeOrMoreItems() {
+    return this.state.items.length >= 3;
+  }
+
+  _twoItems() {
+    return this.state.items.length === 2;
+  }
+
+  _oneItem() {
+    return this.state.items.length === 1;
+  }
 
 
 
