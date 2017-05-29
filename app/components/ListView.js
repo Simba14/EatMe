@@ -22,9 +22,20 @@ class ListView extends Component {
   }
 
   updateUsage(choice) {
+    let usage = [ realm.objects('UsageDB')];
+    usageObject = usage.map(x => Object.assign({}, x));
+    usageArray = Object.values(usageObject[0]);
+    let binnedCount = 0
+    if(usageArray[0] !== undefined){
+      console.log("Apparently defined")
+      binnedCount = usageArray[0].binned
+    } else {
+      console.log("Undefined innit")
+    }
+
     if(choice === "binned"){
       realm.write(() => {
-        console.log(realm.create('UsageDB', {id: 1, binned: 1}, true));
+        realm.create('UsageDB', {id: 1, binned: binnedCount+1}, true);
       });
     } else {
 
