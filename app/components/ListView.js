@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import StartScreen from './common/StartScreen';
 import Realm from 'realm';
-import { realm } from './Schema';
-import { ItemDB } from './Schema';
+import { Database, realm } from './Schema';
 import Item from './Item';
 
 class ListView extends Component {
@@ -13,7 +12,7 @@ class ListView extends Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-  deleteItem(id) {
+  deleteItem(id, choice) {
     const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
     realm.write(() => {
       realm.delete(itemToDelete);

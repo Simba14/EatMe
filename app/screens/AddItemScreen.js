@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
-import { ItemDB } from '../components/Schema';
-import { realm } from '../components/Schema';
+import { Database, realm } from '../components/Schema';
 import uuid from 'uuid';
 
 class AddItemScreen extends Component {
@@ -38,7 +37,7 @@ class AddItemScreen extends Component {
 
     const createItem = () => {
         realm.write(() => {
-        realm.create(ItemDB.schema.name, {
+        realm.create(Database.schema.name, {
           id: uuid.v1(),
           itemName: this.state.itemName,
           expirationDate: this.state.date,

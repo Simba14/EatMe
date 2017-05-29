@@ -14,13 +14,13 @@ class Item extends Component {
       text: 'Binned',
       backgroundColor: 'red',
       underlayColor: 'grey',
-      onPress: () => { this.props.deleteItem(this.props.item.id) }
+      onPress: () => { this.props.deleteItem(this.props.item.id, 'binned') }
       },
     {
       text: 'Eaten',
       backgroundColor: 'green',
       underlayColor: 'grey',
-      onPress: () => { this.props.deleteItem(this.props.item.id) }
+      onPress: () => { this.props.deleteItem(this.props.item.id, 'eaten') }
     }];
 
     var expirationDate = this.props.item.expirationDate;
