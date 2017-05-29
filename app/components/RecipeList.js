@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Alert, ScrollView } from 'react-native';
+import { View, Image, Text, Alert, ScrollView } from 'react-native';
 import Realm from 'realm';
 import { realm } from './Schema';
 import { ItemDB } from './Schema';
@@ -14,6 +14,7 @@ class RecipeList extends Component {
     this.state = {
       items: [],
       recipes: [],
+      loading: true
     };
 
   }
@@ -29,9 +30,20 @@ class RecipeList extends Component {
       this.renderNoRecipes
     }
     axios.get('http://food2fork.com/api/search?key=b2eb251598eb1b9ffa9244ceab691efa&q=' + items)
-      .then(response => this.setState({ recipes: response.data.recipes }));
+      .then(response => this.setState({ recipes: response.data.recipes,
+                                        loading: false
+                                      }));
   }
 
+  loading() {
+    if (this.state.loading === true) {
+      return (
+        <View style={styles.loadingContainer}>
+          <Image style={styles.loading} source={require('../assets/loading.gif')} />
+        </View>
+      );
+    };
+  }
 
   componentWillMount() {
     let results = [ realm.objects('ItemDB').sorted('expirationDate')];
@@ -53,6 +65,7 @@ class RecipeList extends Component {
   render() {
     return (
       <ScrollView>
+        {this.loading()}
         {this.renderRecipes()}
       </ScrollView>
     );
@@ -67,6 +80,21 @@ class RecipeList extends Component {
   }
   _oneItem() {
     return this.state.items.length === 1;
+  }
+}
+
+
+
+const styles = {
+  loadingContainer: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  loading: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 200,
+    width: 200
   }
 }
 
