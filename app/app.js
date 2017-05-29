@@ -36,7 +36,7 @@ export default class App extends Component {
 
       PushNotification.localNotificationSchedule({
         message: message,
-        date: new Date(Date.now() + (2 * 1000)),
+        date: date,
         repeatType: 'day'
       });
 
@@ -56,9 +56,7 @@ export default class App extends Component {
 
   render() {
     return (
-    // <Provider store={createStore}> // provider works with the store. translates the data in the store to be used by react
       <Router />
-    // </Provider>
     );
   }
 }
