@@ -11,8 +11,14 @@ class Item extends Component {
   }
   render () {
     let swipeoutBtns = [{
-      text: 'Delete',
+      text: 'Binned',
       backgroundColor: 'red',
+      underlayColor: 'grey',
+      onPress: () => { this.props.deleteItem(this.props.item.id) }
+      },
+    {
+      text: 'Eaten',
+      backgroundColor: 'green',
       underlayColor: 'grey',
       onPress: () => { this.props.deleteItem(this.props.item.id) }
     }];
