@@ -5,10 +5,16 @@ import { Actions } from 'react-native-router-flux';
 
 class Recipe extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      url: ""
+    }
+  }
 
   render() {
     return(
-      <TouchableOpacity onPress={() => Actions.webview() }>
+      <TouchableOpacity onPress={() => this.openWebView(this.props.recipe.source_url) }>
         <View style={styles.recipeViewStyle}>
           <View style={styles.imageViewStyle}>
             <Image source={{ uri: this.props.recipe.image_url}} style={styles.imageStyle} />
@@ -22,9 +28,10 @@ class Recipe extends Component {
     );
   };
 
-  // renderRecipeWebView(url) {
-  //   Linking.openURL(url);
-  // }
+  openWebView(url) {
+    Actions.webview({url: url})
+  }
+
 }
 
 const styles = {
