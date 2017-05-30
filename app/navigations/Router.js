@@ -5,6 +5,7 @@ import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 import RecipeGeneratorScreen from '../screens/RecipeGeneratorScreen';
+import RecipeWebView from '../components/RecipeWebView';
 
 const RouterComponent = () => {
   return (
@@ -41,9 +42,10 @@ const RouterComponent = () => {
           leftTitle="Back"
         />
       </Scene>
-      <Scene key='webview'>
+      <Scene key='webview' direction='horizontal'>
         <Scene
           key='RecipeWebView'
+          component={ RecipeWebView }
           title='GO MAKE DIS DISH'
           onLeft={() => Actions.recipes()}
           leftTitle="Back"

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View, Image,TouchableOpacity, WebView, Linking } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
 
 class Recipe extends Component {
 
 
   render() {
     return(
-      <TouchableOpacity onPress={() => this.renderRecipeWebView(this.props.recipe.source_url)}>
+      <TouchableOpacity onPress={() => Actions.webview() }>
         <View style={styles.recipeViewStyle}>
           <View style={styles.imageViewStyle}>
             <Image source={{ uri: this.props.recipe.image_url}} style={styles.imageStyle} />
@@ -20,9 +22,9 @@ class Recipe extends Component {
     );
   };
 
-  renderRecipeWebView(url) {
-    Linking.openURL(url);
-  }
+  // renderRecipeWebView(url) {
+  //   Linking.openURL(url);
+  // }
 }
 
 const styles = {
