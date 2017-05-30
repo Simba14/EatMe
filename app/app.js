@@ -14,7 +14,8 @@ export default class App extends Component {
     let expiringItemsCount = this.getExpiringItemsCount();
     let binnedItemsCount = this.getBinnedItemsCount();
     this.state = {
-      expiringItemsCount
+      expiringItemsCount,
+      binnedItemsCount
     }
   }
 
@@ -22,6 +23,7 @@ export default class App extends Component {
     AppState.addEventListener('change', this.handleAppStateChange);
     this.timer = setInterval(() => {
       this.setState({ expiringItemsCount: this.getExpiringItemsCount() });
+      this.setState({ binnedItemsCount: this.getBinnedItemsCount() })
     }, 4000);
   }
 
@@ -44,7 +46,7 @@ export default class App extends Component {
 
     if (appState === 'background') {
       let date = new Date(Date.now() + (4 * 1000)) //moment({ hour: 21, minute: 31, seconds: 0 })
-      let message = 'Please';
+      let message = this.getWeeklyUsageMessage();
 
       PushNotification.localNotificationSchedule({
         message: message,
@@ -70,6 +72,11 @@ export default class App extends Component {
 
   getNotificationMessage() {
     return 'You have ' + this.state.expiringItemsCount.toString() + " " + pluralize('item',this.state.expiringItemsCount) + ' that will expire today';
+  }
+
+  getWeeklyUsageMessage() {
+    // if (this.state.binnedItemsCount = 0)
+    return 'You threw away ' + this.state.binnedItemsCount.toString() + " " + pluralize('item',this.state.binnedItemsCount) + ' this week 😩';
   }
 
   queryDatabase(databaseName, filteredBy, startDate, endDate) {
