@@ -18,7 +18,7 @@ usageDatabase.schema = {
   name: 'UsageDB',
   primaryKey: 'id',
   properties: {
-    id: {type: 'int', default: 1},
+    id: {type: 'string' },
     binned: {type: 'int', default: 0},
     eaten: {type: 'int', default: 0}
   }

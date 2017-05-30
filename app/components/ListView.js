@@ -4,6 +4,7 @@ import StartScreen from './common/StartScreen';
 import Realm from 'realm';
 import { itemDatabase, realm } from './Schema';
 import Item from './Item';
+import uuid from 'uuid';
 
 class ListView extends Component {
   constructor(props) {
@@ -32,9 +33,9 @@ class ListView extends Component {
 
     realm.write(() => {
       if(choice === "binned"){
-        realm.create('UsageDB', {id: 1, binned: binnedCount+1}, true);
+        realm.create('UsageDB', {id: uuid.v1(), binned: binnedCount+1}, true);
       } else {
-        realm.create('UsageDB', {id: 1, eaten: eatenCount+1}, true);
+        realm.create('UsageDB', {id: uuid.v1(), eaten: eatenCount+1}, true);
       }
     });
   }
