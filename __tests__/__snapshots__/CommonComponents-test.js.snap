@@ -42,3 +42,102 @@ exports[`renders the LowerContainer component correctly 1`] = `
   }
 />
 `;
+
+exports[`renders the SubmitButton component correctly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <BVLinearGradient
+    colors={
+      Array [
+        4278558825,
+        4278569350,
+      ]
+    }
+    end={undefined}
+    locations={null}
+    start={undefined}
+    style={
+      Object {
+        "borderRadius": 50,
+        "flex": 1,
+        "justifyContent": "center",
+        "marginLeft": 20,
+        "marginRight": 20,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "500",
+          "letterSpacing": 1,
+          "textAlign": "center",
+        }
+      }
+    />
+  </BVLinearGradient>
+</View>
+`;
+
+exports[`renders the UpperContainer component correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "stretch",
+        "flex": 9,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+        "marginBottom": 15,
+        "marginTop": -10,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders the ViewContainer component correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+        "marginBottom": 5,
+        "marginTop": 90,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
