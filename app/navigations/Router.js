@@ -6,6 +6,7 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 import RecipeGeneratorScreen from '../screens/RecipeGeneratorScreen';
 import RecipeWebView from '../components/RecipeWebView';
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const RouterComponent = () => {
   return (
@@ -19,9 +20,9 @@ const RouterComponent = () => {
           key='AddItem'
           onLeft={() => Actions.main() }
           onRight={() => Actions.barcode() }
-          title="ADD ITEM"
-          leftTitle='Back'
-          rightTitle='Camera'
+          title= "ADD ITEM"
+          leftTitle= 'Back'
+          rightTitle= {<Icon name="barcode" size={23} color="#000" />}
           component={ AddItemScreen }
         />
       </Scene>

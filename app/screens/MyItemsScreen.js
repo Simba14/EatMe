@@ -14,8 +14,8 @@ class MyItemsScreen extends Component {
     return (
       <ViewContainer>
         <UpperContainer>
-          <ListView deleteItem={this.deleteItem}/>
-          <TouchableHighlight style={styles.recipeButtonStyle} onPress={ () => Actions.recipes() }>
+          <ListView deleteItem={ this.deleteItem }/>
+          <TouchableHighlight style={ styles.recipeButtonStyle } onPress={ () => Actions.recipes() }>
             <Text>Recipes</Text>
           </TouchableHighlight>
         </UpperContainer>

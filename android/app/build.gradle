@@ -126,6 +126,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-linear-gradient')
+    compile project(':react-native-camera')
     compile project(':react-native-push-notification')
     compile project(':realm')
     compile fileTree(dir: "libs", include: ["*.jar"])
