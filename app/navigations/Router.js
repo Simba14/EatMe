@@ -49,7 +49,7 @@ const RouterComponent = () => {
         <Scene
           key='RecipeWebView'
           component={ RecipeWebView }
-          title='GO MAKE DIS DISH'
+          title='RECIPE'
           onLeft={() => Actions.recipes()}
           leftTitle="Back"
         />

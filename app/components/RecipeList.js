@@ -66,13 +66,21 @@ class RecipeList extends Component {
   }
 
   render() {
-    return (
-      <ScrollView>
-        {this.loading()}
-        {this.renderRecipes()}
-      </ScrollView>
-    );
-  };
+    if (this.state.items.length > 0) {
+      return (
+        <ScrollView>
+          {this.loading()}
+          {this.renderRecipes()}
+        </ScrollView>
+      );
+    } else {
+      return (
+        <ScrollView>
+          {this.renderRecipes()}
+        </ScrollView>
+      );
+    }
+  }
 
   _threeOrMoreItems() {
     return this.state.items.length >= 3;
@@ -83,7 +91,7 @@ class RecipeList extends Component {
   _oneItem() {
     return this.state.items.length === 1;
   }
-}
+};
 
 const styles = {
   loadingContainer: {
