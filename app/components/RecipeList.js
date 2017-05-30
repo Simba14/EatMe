@@ -6,8 +6,6 @@ import { ItemDB } from './Schema';
 import axios from 'axios';
 import Recipe from './Recipe';
 import NoRecipes from './common/NoRecipes';
-// import RecipeWebView from './RecipeWebView';
-
 
 class RecipeList extends Component {
   constructor(props) {
@@ -17,7 +15,6 @@ class RecipeList extends Component {
       recipes: [],
       loading: true
     };
-
   }
 
   componentDidMount()  {
@@ -67,11 +64,10 @@ class RecipeList extends Component {
     return (
       <ScrollView>
         {this.loading()}
-          {this.renderRecipes()}
+        {this.renderRecipes()}
       </ScrollView>
     );
   };
-
 
   _threeOrMoreItems() {
     return this.state.items.length >= 3;
@@ -83,8 +79,6 @@ class RecipeList extends Component {
     return this.state.items.length === 1;
   }
 }
-
-
 
 const styles = {
   loadingContainer: {
