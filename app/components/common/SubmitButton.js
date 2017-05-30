@@ -1,10 +1,13 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 const SubmitButton = ({onPress, children}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button}>
-      <Text style={styles.text}>{children}</Text>
+      <LinearGradient colors={['#05A069', '#05C986']} style={styles.linearGradient}>
+        <Text style={styles.buttonText}>{children}</Text>
+      </LinearGradient>
     </TouchableOpacity>
   );
 };
@@ -12,22 +15,21 @@ const SubmitButton = ({onPress, children}) => {
 const styles = StyleSheet.create({
   button: {
     flex: 1,
-    alignSelf: 'stretch',
+  },
+  linearGradient: {
+    flex: 1,
     justifyContent: 'center',
     borderRadius: 50,
-    backgroundColor: '#14C68A',
     marginLeft: 20,
     marginRight: 20
-    //drop shadow
-
   },
-  text: {
-    justifyContent: 'center',
-    alignSelf: 'center',
-    color: '#007aff',
+  buttonText: {
     fontSize: 18,
     fontWeight: '500',
-    color: '#FFF'
+    letterSpacing: 1,
+    textAlign: 'center',
+    color: '#ffffff',
+    backgroundColor: 'transparent'
   }
 });
 

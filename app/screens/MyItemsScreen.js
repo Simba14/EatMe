@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {
   SubmitButton,
@@ -13,8 +13,8 @@ import {
 import { NavItem } from '../components/common/NavItem';
 import { NavActiveBar } from '../components/common/NavActiveBar';
 import ListView from '../components/ListView';
-import { realm } from '../components/Schema';
-import ItemDB from '../components/Schema';
+import { itemDatabase, realm } from '../components/Schema';
+import PushController from '../components/PushController';
 
 class MyItemsScreen extends Component {
   constructor(props) {
@@ -28,27 +28,33 @@ class MyItemsScreen extends Component {
           <ListView deleteItem={this.deleteItem}/>
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => Actions.add() }>
+          <SubmitButton onPress={ () => Actions.add() }>
             ADD ITEM
           </SubmitButton>
         </LowerContainer>
+
         <BottomNavContainer>
+
           <NavItemContainer>
-            <NavItem imagePath={ require('../assets/myitemsicon.png')} style={styles.viewStyle}>
-              My Items
-            </NavItem>
+              <NavItem imagePath={ require('../assets/myitemsicon.png')} style={styles.viewStyle}>
+                My Items
+              </NavItem>
           </NavItemContainer>
-          <NavItemContainer>
-            <NavItem imagePath={ require('../assets/recipeicon.png')}>
-              Recipes
-            </NavItem>
-            <NavActiveBar style={styles.viewStyle} />
-          </NavItemContainer>
+
+          <TouchableOpacity onPress={ () => Actions.recipes() }>
+            <NavItemContainer>
+              <NavItem imagePath={ require('../assets/recipeicon.png')}>
+                Recipes
+              </NavItem>
+              <NavActiveBar style={styles.viewStyle} />
+            </NavItemContainer>
+          </TouchableOpacity>
         </BottomNavContainer>
+
+        <PushController />
       </ViewContainer>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
