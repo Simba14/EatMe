@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Scene, Router, Image } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
+import { Image } from 'react-native';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 import RecipeGeneratorScreen from '../screens/RecipeGeneratorScreen';
 import RecipeWebView from '../components/RecipeWebView';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const RouterComponent = () => {
   return (
@@ -17,6 +19,8 @@ const RouterComponent = () => {
           title="MY ITEMS" initial
           leftButtonImage={require('../assets/logoNavbar.png')}
           onLeft={() => Actions.main() }
+          onRight={() => Actions.recipes() }
+          rightTitle= { <Image source={require('../assets/chef-blue.png')} />  }
         />
       </Scene>
 
@@ -25,9 +29,9 @@ const RouterComponent = () => {
           key='AddItem'
           onLeft={() => Actions.main() }
           onRight={() => Actions.barcode() }
-          title="ADD ITEM"
-          leftTitle='Back'
-          rightTitle='Camera'
+          title= "ADD ITEM"
+          leftTitle= 'Back'
+          rightTitle= {<Icon name="barcode" size={23} color="#000" />}
           component={ AddItemScreen }
         />
       </Scene>
@@ -54,7 +58,7 @@ const RouterComponent = () => {
         <Scene
           key='RecipeWebView'
           component={ RecipeWebView }
-          title='GO MAKE DIS DISH'
+          title='RECIPE'
           onLeft={() => Actions.recipes()}
           leftTitle="Back"
         />

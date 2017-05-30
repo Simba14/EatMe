@@ -6,6 +6,8 @@ import { ItemDB } from './Schema';
 import axios from 'axios';
 import Recipe from './Recipe';
 import NoRecipes from './common/NoRecipes';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Animatable from 'react-native-animatable';
 
 class RecipeList extends Component {
   constructor(props) {
@@ -42,7 +44,9 @@ class RecipeList extends Component {
     if (this.state.loading === true) {
       return (
         <View style={styles.loadingContainer}>
-          <Image style={styles.loading} source={require('../assets/loading.gif')} />
+          <Animatable.Text animation="rotate" iterationCount="infinite" style={styles.loading}>
+            <Icon name="spinner" size={80} color="#000000" />
+          </Animatable.Text>
         </View>
       );
     };
@@ -66,13 +70,21 @@ class RecipeList extends Component {
   }
 
   render() {
-    return (
-      <ScrollView>
-        {this.loading()}
-        {this.renderRecipes()}
-      </ScrollView>
-    );
-  };
+    if (this.state.items.length > 0) {
+      return (
+        <ScrollView>
+          {this.loading()}
+          {this.renderRecipes()}
+        </ScrollView>
+      );
+    } else {
+      return (
+        <ScrollView>
+          {this.renderRecipes()}
+        </ScrollView>
+      );
+    }
+  }
 
   _threeOrMoreItems() {
     return this.state.items.length >= 3;
@@ -83,7 +95,7 @@ class RecipeList extends Component {
   _oneItem() {
     return this.state.items.length === 1;
   }
-}
+};
 
 const styles = {
   loadingContainer: {
@@ -93,8 +105,7 @@ const styles = {
   loading: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 200,
-    width: 200
+    marginTop: 40
   }
 }
 
