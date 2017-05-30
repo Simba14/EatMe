@@ -16,7 +16,7 @@ const RouterComponent = () => {
           component={ MyItemsScreen }
           title="MY ITEMS" initial
           leftButtonImage={require('../assets/logoNavbar.png')}
-          onLeft={() => Action.main() }
+          onLeft={() => Actions.main() }
         />
       </Scene>
 
@@ -67,6 +67,7 @@ const RouterComponent = () => {
 const styles = {
   nav: {
     backgroundColor: '#FFFFFF',
+    height: '10%'
   }
 }
 
