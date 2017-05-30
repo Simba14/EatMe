@@ -8,16 +8,10 @@ class RecipeGeneratorScreen extends Component {
   render() {
     return (
       <ViewContainer>
-        <UpperContainer>
-          <RecipeList  />
-        </UpperContainer>
-        <LowerContainer>
-        </LowerContainer>
+        <RecipeList  />
       </ViewContainer>
     );
   };
-
-
 }
 
 export default RecipeGeneratorScreen;

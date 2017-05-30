@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Scene, Router, Image } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
-import { Image } from 'react-native';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
@@ -14,13 +13,14 @@ const RouterComponent = () => {
     <Router navigationBarStyle={ styles.nav}>
       <Scene key='main' direction='leftToRight' >
         <Scene
+          style={styles.sceneNav}
           key='MyItems'
           component={ MyItemsScreen }
           title="MY ITEMS" initial
           leftButtonImage={require('../assets/logoNavbar.png')}
           onLeft={() => Actions.main() }
           onRight={() => Actions.recipes() }
-          rightTitle= { <Image source={require('../assets/chef-blue.png')} />  }
+          rightButtonImage={require('../assets/chef.png')}
         />
       </Scene>
 
@@ -72,6 +72,10 @@ const styles = {
   nav: {
     backgroundColor: '#FFFFFF',
     height: '10%'
+  },
+  sceneNav: {
+    marginLeft: '-5%',
+    marginRight: '-5%'
   }
 }
 
