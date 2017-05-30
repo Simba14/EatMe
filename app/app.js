@@ -3,7 +3,7 @@ import { AppState, Platform } from 'react-native';
 import Router from './navigations/Router.js'
 import PushNotification from 'react-native-push-notification'
 import Realm from 'realm';
-import { realm, ItemDB } from './components/Schema';
+import { realm, ItemDB, UsageDB } from './components/Schema';
 import moment from 'moment';
 import pluralize from 'pluralize';
 
@@ -11,9 +11,10 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
-    let expiringItemsCount = this.getExpiringItemsCount()
+    let expiringItemsCount = this.getExpiringItemsCount();
+    // let binnedItemsCount = this.getBinnedItemsCount();
     this.state = {
-      expiringItemsCount: expiringItemsCount
+      expiringItemsCount
     }
   }
 
