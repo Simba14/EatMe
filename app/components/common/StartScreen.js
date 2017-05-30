@@ -9,7 +9,7 @@ const StartScreen = () => {
       <Text style={styles.title}>Get Started</Text>
       <Text style={styles.body}>Add your first item and start tracking your food</Text>
       <Animatable.Text animation="pulse" iterationCount="infinite">
-        <Icon name="long-arrow-down" size={70} color="#323232" />
+        <Icon name="long-arrow-down" size={70} color="#808080" />
       </Animatable.Text>
     </View>
   );
