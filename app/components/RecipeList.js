@@ -69,7 +69,7 @@ class RecipeList extends Component {
     if (this.state.items.length > 0) {
       return (
         <ScrollView>
-          {this.loading()};
+          {this.loading()}
           {this.renderRecipes()}
         </ScrollView>
       );
