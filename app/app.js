@@ -40,6 +40,7 @@ export default class App extends Component {
         date: date,
         repeatType: 'day'
       });
+    }
 
     if (appState === 'background') {
       let date = new Date(Date.now() + (4 * 1000)) //moment({ hour: 21, minute: 31, seconds: 0 })
@@ -49,9 +50,7 @@ export default class App extends Component {
         message: message,
         date: date,
         repeatType: 'week'
-    });
-}
-
+      });
     }
   }
 
@@ -63,7 +62,10 @@ export default class App extends Component {
   }
 
   getBinnedItemsCount() {
-    return '0';
+    startOfWeek = new Date(new Date().getTime() - 168 * 60 * 60 * 1000);
+    endOfWeek = new Date;
+    binnedItems = this.queryDatabase('UsageDB', 'createdTimestamp >= $0 && createdTimestamp < $1', startOfWeek, endOfWeek);
+    return binnedItems.length;
   }
 
   getNotificationMessage() {
