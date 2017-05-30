@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, Image } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
@@ -9,9 +9,15 @@ import RecipeWebView from '../components/RecipeWebView';
 
 const RouterComponent = () => {
   return (
-    <Router navigationBarStyle={ styles.nav }>
+    <Router navigationBarStyle={ styles.nav}>
       <Scene key='main' direction='leftToRight' >
-        <Scene key='MyItems' component={ MyItemsScreen } title="MY ITEMS" initial />
+        <Scene
+          key='MyItems'
+          component={ MyItemsScreen }
+          title="MY ITEMS" initial
+          leftButtonImage={require('../assets/logoNavbar.png')}
+          onLeft={() => Action.main() }
+        />
       </Scene>
 
       <Scene key='add' direction='vertical'>
@@ -55,12 +61,12 @@ const RouterComponent = () => {
       </Scene>
     </Router>
   )
+
 }
 
 const styles = {
   nav: {
     backgroundColor: '#FFFFFF',
-    // marginTop: 10
   }
 }
 
