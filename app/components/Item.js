@@ -4,6 +4,8 @@ import moment from 'moment';
 import Realm from 'realm';
 import Swipeout from 'react-native-swipeout';
 import { Actions } from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome'
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class Item extends Component {
   constructor(props) {
@@ -11,14 +13,15 @@ class Item extends Component {
   }
   render () {
     let swipeoutBtns = [{
-      text: 'Binned',
-      backgroundColor: 'red',
+      text: <Icon name="trash" size={23} color="#900" />,
+      backgroundColor: '#e74c3c',
       underlayColor: 'grey',
       onPress: () => { this.props.deleteItem(this.props.item.id, 'binned') }
       },
     {
-      text: 'Eaten',
-      backgroundColor: 'green',
+      text: <Icon name="cutlery" size={23} color="#1c7d44" />,
+      fontSize: 30,
+      backgroundColor: '#27ae60',
       underlayColor: 'grey',
       onPress: () => { this.props.deleteItem(this.props.item.id, 'eaten') }
     }];
