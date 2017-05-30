@@ -4,6 +4,7 @@ import StartScreen from './common/StartScreen';
 import Realm from 'realm';
 import { itemDatabase, realm } from './Schema';
 import Item from './Item';
+import uuid from 'uuid';
 
 class ListView extends Component {
   constructor(props) {
@@ -14,32 +15,33 @@ class ListView extends Component {
 
   deleteItem(id, choice) {
     const itemToDelete = realm.objectForPrimaryKey('ItemDB', id);
+    let itemName = itemToDelete.itemName;
     realm.write(() => {
       realm.delete(itemToDelete);
     });
     this.updateArray();
-    this.updateUsage(choice);
+    this.updateUsage(choice, itemName);
   }
 
-  updateUsage(choice) {
+  updateUsage(choice, itemName) {
     usageArray = this.queryDatabase('UsageDB','id');
-    let binnedCount = 0
-    let eatenCount = 0
+    let binnedCount = 0;
+    let eatenCount = 0;
     if(usageArray[0] !== undefined){
-      binnedCount = usageArray[0].binned
-      eatenCount = usageArray[0].eaten
+      binnedCount = usageArray[0].binned;
+      eatenCount = usageArray[0].eaten;
     }
-
+    
     realm.write(() => {
       if(choice === "binned"){
-        realm.create('UsageDB', {id: 1, binned: binnedCount+1}, true);
+        realm.create('UsageDB', { id: uuid.v1(), itemName: itemName, binned: 1 });
       } else {
-        realm.create('UsageDB', {id: 1, eaten: eatenCount+1}, true);
+        realm.create('UsageDB', { id: uuid.v1(), itemName: itemName, eaten: 1 });
       }
     });
   }
 
-  queryDatabase(databaseName,sortMethod) {
+  queryDatabase(databaseName, sortMethod) {
     let results = [ realm.objects(databaseName).sorted(sortMethod)];
     resultsObject = results.map(x => Object.assign({}, x));
     return resultsArray = Object.values(resultsObject[0]);
