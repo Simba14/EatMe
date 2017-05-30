@@ -13,6 +13,7 @@ const RouterComponent = () => {
       <Scene key='main' direction='leftToRight' >
         <Scene key='MyItems' component={ MyItemsScreen } title="MY ITEMS" initial />
       </Scene>
+
       <Scene key='add' direction='vertical'>
         <Scene
           key='AddItem'
@@ -24,6 +25,7 @@ const RouterComponent = () => {
           component={ AddItemScreen }
         />
       </Scene>
+
       <Scene key='barcode' direction='horizontal'>
         <Scene
           key='BarcodeScanner'

@@ -3,8 +3,8 @@ import { TouchableHighlight, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
 import ListView from '../components/ListView';
-import { realm } from '../components/Schema';
-import ItemDB from '../components/Schema';
+import { itemDatabase, realm } from '../components/Schema';
+import PushController from '../components/PushController';
 
 class MyItemsScreen extends Component {
   constructor(props) {
@@ -25,10 +25,10 @@ class MyItemsScreen extends Component {
             ADD ITEM
           </SubmitButton>
         </LowerContainer>
+        <PushController />
       </ViewContainer>
     );
   }
-
 }
 
 const styles = {

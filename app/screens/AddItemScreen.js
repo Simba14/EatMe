@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Text, AsyncStorage, DatePickerIOS, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer, Input } from '../components/common';
-import { ItemDB } from '../components/Schema';
-import { realm } from '../components/Schema';
+import { itemDatabase, realm } from '../components/Schema';
 import uuid from 'uuid';
 
 class AddItemScreen extends Component {
@@ -16,22 +15,29 @@ class AddItemScreen extends Component {
     }
   }
 
+  adaptDate(date) {
+    date.setDate(date.getDate() + 1);
+    date.setHours(0,0,0,0);
+    this.setState({date: date});
+  }
+
   render() {
 
     const saveItem = () => {
-      if(this.state.itemName === "") {
+      if(this.state.itemName === undefined) {
         Alert.alert(
           'Please enter a food item',
         )
       } else {
         Actions.main();
+        this.adaptDate(this.state.date);
         createItem();
         }
       }
 
     const createItem = () => {
       realm.write(() => {
-        realm.create(ItemDB.schema.name, {
+        let newItem = realm.create('ItemDB', {
           id: uuid.v1(),
           itemName: this.state.itemName,
           expirationDate: this.state.date,
@@ -54,7 +60,7 @@ class AddItemScreen extends Component {
               date={this.state.date}
               mode="date"
               onDateChange={(date)=>this.setState({date})}
-              minimumDate={this.state.date}
+              minimumDate={new Date()}
             />
         </View>
         </UpperContainer>
@@ -82,6 +88,5 @@ const styles = StyleSheet.create({
     marginTop: 1
   }
 });
-
 
 export default AddItemScreen;
