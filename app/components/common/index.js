@@ -6,3 +6,5 @@ export * from './UpperContainer';
 export * from './ViewContainer';
 export * from './BottomNavContainer';
 export * from './NavItem';
+export * from './NavActiveBar';
+export * from './NavItemContainer';
