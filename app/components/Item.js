@@ -5,7 +5,6 @@ import Realm from 'realm';
 import Swipeout from 'react-native-swipeout';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome'
-// import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class Item extends Component {
   constructor(props) {
