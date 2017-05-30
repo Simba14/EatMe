@@ -12,10 +12,10 @@ export default class App extends Component {
     super(props);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
     let expiringItemsCount = this.getExpiringItemsCount();
-    let binnedItemsCount = this.getBinnedItemsCount();
+    let binnedItems = this.getBinnedItems();
     this.state = {
       expiringItemsCount,
-      binnedItemsCount
+      binnedItems
     }
   }
 
@@ -23,7 +23,7 @@ export default class App extends Component {
     AppState.addEventListener('change', this.handleAppStateChange);
     this.timer = setInterval(() => {
       this.setState({ expiringItemsCount: this.getExpiringItemsCount() });
-      this.setState({ binnedItemsCount: this.getBinnedItemsCount() })
+      this.setState({ binnedItems: this.getBinnedItems() })
     }, 4000);
   }
 
@@ -63,11 +63,11 @@ export default class App extends Component {
     return itemsExpiringToday.length;
   }
 
-  getBinnedItemsCount() {
+  getBinnedItems() {
     startOfWeek = new Date(new Date().getTime() - 168 * 60 * 60 * 1000);
     endOfWeek = new Date;
     binnedItems = this.queryDatabase('UsageDB', 'createdTimestamp >= $0 && createdTimestamp < $1', startOfWeek, endOfWeek);
-    return binnedItems.length;
+    return binnedItems;
   }
 
   getNotificationMessage() {
@@ -76,7 +76,7 @@ export default class App extends Component {
 
   getWeeklyUsageMessage() {
     // if (this.state.binnedItemsCount = 0)
-    return 'You threw away ' + this.state.binnedItemsCount.toString() + " " + pluralize('item',this.state.binnedItemsCount) + ' this week 😩';
+    return 'You threw away ' + this.state.binnedItems.length.toString() + " " + pluralize('item',this.state.binnedItems.length) + ' this week 😩';
   }
 
   queryDatabase(databaseName, filteredBy, startDate, endDate) {
