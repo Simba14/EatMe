@@ -12,7 +12,14 @@ const RouterComponent = () => {
   return (
     <Router navigationBarStyle={ styles.nav }>
       <Scene key='main' direction='leftToRight' >
-        <Scene key='MyItems' component={ MyItemsScreen } title="MY ITEMS" initial />
+        <Scene
+          key='MyItems'
+          component={ MyItemsScreen }
+          onRight={() => Actions.recipes() }
+          rightTitle= {<Icon name="barcode" size={23} color="#000" />}
+          title="MY ITEMS"
+          initial
+        />
       </Scene>
 
       <Scene key='add' direction='vertical'>
