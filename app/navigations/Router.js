@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, Image } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
 import { Image } from 'react-native';
 import AddItemScreen from '../screens/AddItemScreen';
@@ -11,15 +11,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const RouterComponent = () => {
   return (
-    <Router navigationBarStyle={ styles.nav }>
+    <Router navigationBarStyle={ styles.nav}>
       <Scene key='main' direction='leftToRight' >
         <Scene
           key='MyItems'
           component={ MyItemsScreen }
+          title="MY ITEMS" initial
+          leftButtonImage={require('../assets/logoNavbar.png')}
+          onLeft={() => Actions.main() }
           onRight={() => Actions.recipes() }
           rightTitle= { <Image source={require('../assets/chef-blue.png')} />  }
-          title="MY ITEMS"
-          initial
         />
       </Scene>
 
@@ -64,12 +65,13 @@ const RouterComponent = () => {
       </Scene>
     </Router>
   )
+
 }
 
 const styles = {
   nav: {
     backgroundColor: '#FFFFFF',
-    // marginTop: 10
+    height: '10%'
   }
 }
 
