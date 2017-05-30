@@ -61,6 +61,13 @@ export default class App extends Component {
     return 'You have ' + this.state.expiringItemsCount.toString() + " " + pluralize('item',this.state.expiringItemsCount) + ' that will expire today';
   }
 
+  queryDatabase(databaseName, filteredBy, startDate, endDate) {
+    let results = [ realm.objects(databaseName).filtered(filteredBy, startDate, endDate)];
+    resultsObject = results.map(x => Object.assign({}, x));
+    resultsArray = Object.values(resultsObject[0]);
+    return resultsArray;
+  }
+
   render() {
     return (
       <Router />
