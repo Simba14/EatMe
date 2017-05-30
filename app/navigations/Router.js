@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import { Actions } from 'react-native-router-flux';
+import { Image } from 'react-native';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
@@ -16,7 +17,7 @@ const RouterComponent = () => {
           key='MyItems'
           component={ MyItemsScreen }
           onRight={() => Actions.recipes() }
-          rightTitle= {<Icon name="barcode" size={23} color="#000" />}
+          rightTitle= { <Image source={require('../assets/chef.png')} />  }
           title="MY ITEMS"
           initial
         />
