@@ -17,7 +17,7 @@ const RouterComponent = () => {
           key='MyItems'
           component={ MyItemsScreen }
           onRight={() => Actions.recipes() }
-          rightTitle= { <Image source={require('../assets/chef.png')} />  }
+          rightTitle= { <Image source={require('../assets/chef-blue.png')} />  }
           title="MY ITEMS"
           initial
         />
