@@ -4,6 +4,7 @@ import Camera from 'react-native-camera';
 import axios from 'axios';
 import _ from 'lodash';
 import { Actions } from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class BarcodeScanner extends Component {
   constructor() {
@@ -38,7 +39,9 @@ class BarcodeScanner extends Component {
       } else {
         return (
           <View style={styles.loadingContainer}>
-            <Image style={styles.loading} source={require('../assets/loading.gif')} />
+            <Text style={styles.loading}>
+              <Icon name="trash" size={23} color="#900" />
+            </Text>
             {this.checkResponse(this.state.scannedItem)}
           </View>
         );
@@ -91,9 +94,7 @@ const styles = StyleSheet.create({
   },
   loading: {
     justifyContent: 'center',
-    alignItems: 'center',
-    height: 200,
-    width: 200
+    alignItems: 'center'
   }
 });
 

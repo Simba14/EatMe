@@ -6,7 +6,7 @@ import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 import RecipeGeneratorScreen from '../screens/RecipeGeneratorScreen';
 import RecipeWebView from '../components/RecipeWebView';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const RouterComponent = () => {
   return (
