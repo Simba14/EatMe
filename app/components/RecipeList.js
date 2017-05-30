@@ -17,21 +17,26 @@ class RecipeList extends Component {
     };
   }
 
-  componentDidMount()  {
-    if (this._threeOrMoreItems()) {
-      var items = this.state.items[0].itemName + ',' + this.state.items[1].itemName + ',' + this.state.items[2].itemName;
-    } else if (this._twoItems()) {
-      var items = this.state.items[0].itemName + ',' + this.state.items[1].itemName;
-    } else if (this._oneItem()) {
-      var items = this.state.items[0].itemName;
+  componentDidMount() {
+    if (this.state.items.length > 4) {
+      var items = this.generateQuery(4);
     } else {
-      this.renderNoRecipes
+      var items = this.generateQuery(this.state.items.length);
     }
     axios.get('http://food2fork.com/api/search?key=b2eb251598eb1b9ffa9244ceab691efa&q=' + items)
       .then(response => this.setState({ recipes: response.data.recipes,
                                         loading: false
                                       }));
   }
+
+  generateQuery(numberOfItems) {
+    queryArray = [];
+    for (var i = 0; i < numberOfItems; i++) {
+      queryArray.push(this.state.items[i].itemName);
+    };
+    return queryArray.join(',');
+  }
+
 
   loading() {
     if (this.state.loading === true) {
