@@ -8,8 +8,8 @@ const StartScreen = () => {
       <Text style={styles.body}>Add your first item and start tracking your food</Text>
       <Image source={ require('../../assets/downarrow.png')} />
     </View>
-  )
-}
+  );
+};
 
 const styles = {
   viewStyle: {
@@ -32,4 +32,4 @@ const styles = {
   },
 }
 
-export default StartScreen;
+export { StartScreen };

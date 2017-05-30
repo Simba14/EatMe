@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import StartScreen from './common/StartScreen';
+import { StartScreen } from './common';
 import Realm from 'realm';
 import { itemDatabase, realm } from './Schema';
 import Item from './Item';
