@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders the Input component correctly 1`] = `
 <TextInput
   onChangeText={undefined}
   placeholder={undefined}
@@ -23,5 +23,22 @@ exports[`renders correctly 1`] = `
     }
   }
   value={undefined}
+/>
+`;
+
+exports[`renders the LowerContainer component correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+        "marginBottom": 30,
+      },
+      undefined,
+    ]
+  }
 />
 `;
