@@ -12,7 +12,7 @@ export default class App extends Component {
     super(props);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
     let expiringItemsCount = this.getExpiringItemsCount();
-    // let binnedItemsCount = this.getBinnedItemsCount();
+    let binnedItemsCount = this.getBinnedItemsCount();
     this.state = {
       expiringItemsCount
     }
@@ -51,6 +51,10 @@ export default class App extends Component {
     itemObject = results.map(x => Object.assign({}, x));
     itemArray = Object.values(itemObject[0]);
     return itemArray.length;
+  }
+
+  getBinnedItemsCount() {
+    return '0';
   }
 
   getNotificationMessage() {
