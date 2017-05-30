@@ -58,7 +58,7 @@ const RouterComponent = () => {
 const styles = {
   nav: {
     backgroundColor: '#FFFFFF',
-    marginTop: 10
+    // marginTop: 10
   }
 }
 
