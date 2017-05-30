@@ -41,6 +41,17 @@ export default class App extends Component {
         repeatType: 'day'
       });
 
+    if (appState === 'background') {
+      let date = new Date(Date.now() + (4 * 1000)) //moment({ hour: 21, minute: 31, seconds: 0 })
+      let message = 'Please';
+
+      PushNotification.localNotificationSchedule({
+        message: message,
+        date: date,
+        repeatType: 'week'
+    });
+}
+
     }
   }
 
