@@ -66,7 +66,7 @@ export default class App extends Component {
   getBinnedItems() {
     startOfWeek = new Date(new Date().getTime() - 168 * 60 * 60 * 1000);
     endOfWeek = new Date;
-    binnedItems = this.queryDatabase('UsageDB', 'createdTimestamp >= $0 && createdTimestamp < $1', startOfWeek, endOfWeek);
+    binnedItems = this.queryDatabase('UsageDB', 'createdTimestamp >= $0 && createdTimestamp < $1 && binned = 1', startOfWeek, endOfWeek);
     return binnedItems;
   }
 
