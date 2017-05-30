@@ -43,6 +43,53 @@ exports[`renders the LowerContainer component correctly 1`] = `
 />
 `;
 
+exports[`renders the StartScreen component correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "height": 275,
+      "justifyContent": "space-between",
+      "marginTop": 120,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#323232",
+        "fontSize": 32,
+      }
+    }
+  >
+    Get Started
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#323232",
+        "fontSize": 20,
+        "marginLeft": 30,
+        "marginRight": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+    Add your first item and start tracking your food
+  </Text>
+  <Image
+    source={1}
+  />
+</View>
+`;
+
 exports[`renders the SubmitButton component correctly 1`] = `
 <View
   accessibilityComponentType={undefined}

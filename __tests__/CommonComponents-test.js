@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import { Input, LowerContainer, SubmitButton, UpperContainer, ViewContainer } from '../app/components/common';
+import { Input, LowerContainer, SubmitButton, UpperContainer, ViewContainer, StartScreen } from '../app/components/common';
 
 import renderer from 'react-test-renderer';
 
@@ -35,6 +35,13 @@ test('renders the UpperContainer component correctly', () => {
 test('renders the ViewContainer component correctly', () => {
   const tree = renderer.create(
     <ViewContainer />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('renders the StartScreen component correctly', () => {
+  const tree = renderer.create(
+    <StartScreen />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
