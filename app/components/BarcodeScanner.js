@@ -5,6 +5,7 @@ import axios from 'axios';
 import _ from 'lodash';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Animatable from 'react-native-animatable';
 
 class BarcodeScanner extends Component {
   constructor() {
@@ -39,9 +40,9 @@ class BarcodeScanner extends Component {
       } else {
         return (
           <View style={styles.loadingContainer}>
-            <Text style={styles.loading}>
-              <Icon name="trash" size={23} color="#900" />
-            </Text>
+            <Animatable.Text animation="rotate" iterationCount="infinite" style={styles.loading}>
+              <Icon name="spinner" size={80} color="#000000" />
+            </Animatable.Text>
             {this.checkResponse(this.state.scannedItem)}
           </View>
         );
@@ -94,7 +95,8 @@ const styles = StyleSheet.create({
   },
   loading: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 40
   }
 });
 
