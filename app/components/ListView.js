@@ -33,9 +33,9 @@ class ListView extends Component {
 
     realm.write(() => {
       if(choice === "binned"){
-        realm.create('UsageDB', {id: uuid.v1(), binned: binnedCount+1}, true);
+        realm.create('UsageDB', { id: uuid.v1(), itemName: 'test', binned: binnedCount+1, });
       } else {
-        realm.create('UsageDB', {id: uuid.v1(), eaten: eatenCount+1}, true);
+        realm.create('UsageDB', { id: uuid.v1(), itemName: 'test', eaten: eatenCount+1 });
       }
     });
   }
