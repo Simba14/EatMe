@@ -26,32 +26,9 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
-  <key>NSAppTransportSecurity</key>
- <dict>
-      <key>NSAllowsArbitraryLoads</key><true/>
- </dict>
-
-  <!-- <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>myDomain.com</key>
-            <dict>
-                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-            </dict>
-        </dict>
-    </dict> -->
-
 	<key>NSCameraUsageDescription</key>
 	<string>EatMe requires access to your camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
