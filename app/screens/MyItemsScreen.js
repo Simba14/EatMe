@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TouchableHighlight, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { SubmitButton, ViewContainer, UpperContainer, LowerContainer } from '../components/common';
 import ListView from '../components/ListView';
@@ -15,15 +16,26 @@ class MyItemsScreen extends Component {
       <ViewContainer>
         <UpperContainer>
           <ListView deleteItem={this.deleteItem}/>
+          <TouchableHighlight style={styles.recipeButtonStyle} onPress={ () => Actions.recipes() }>
+            <Text>Recipes</Text>
+          </TouchableHighlight>
         </UpperContainer>
         <LowerContainer>
-          <SubmitButton onPress={() => Actions.add() }>
+          <SubmitButton onPress={ () => Actions.add() }>
             ADD ITEM
           </SubmitButton>
         </LowerContainer>
         <PushController />
       </ViewContainer>
     );
+  }
+}
+
+const styles = {
+  recipeButtonStyle: {
+    marginBottom: 20,
+    marginTop: 20,
+    marginLeft: 20
   }
 }
 

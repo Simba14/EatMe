@@ -4,6 +4,8 @@ import { Actions } from 'react-native-router-flux';
 import AddItemScreen from '../screens/AddItemScreen';
 import MyItemsScreen from '../screens/MyItemsScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
+import RecipeGeneratorScreen from '../screens/RecipeGeneratorScreen';
+import RecipeWebView from '../components/RecipeWebView';
 
 const RouterComponent = () => {
   return (
@@ -33,6 +35,24 @@ const RouterComponent = () => {
           leftTitle="Back"
         />
       </Scene>
+      <Scene key='recipes' direction='horizontal'>
+        <Scene
+          key='RecipeGenerator'
+          component={ RecipeGeneratorScreen }
+          title='RECIPES'
+          onLeft={() => Actions.main()}
+          leftTitle="Back"
+        />
+      </Scene>
+      <Scene key='webview' direction='horizontal'>
+        <Scene
+          key='RecipeWebView'
+          component={ RecipeWebView }
+          title='GO MAKE DIS DISH'
+          onLeft={() => Actions.recipes()}
+          leftTitle="Back"
+        />
+      </Scene>
     </Router>
   )
 }
@@ -40,7 +60,7 @@ const RouterComponent = () => {
 const styles = {
   nav: {
     backgroundColor: '#FFFFFF',
-    marginTop: 10
+    // marginTop: 10
   }
 }
 
