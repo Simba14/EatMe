@@ -13,13 +13,10 @@ class BottomNavContainer extends Component {
 
 const styles = StyleSheet.create({
   bottomNavContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    marginTop: 20,
-    marginBottom: 0,
-    backgroundColor: '#FFFFFF'
+    flex: 1.5,
+    flexDirection: 'row',
+    backgroundColor: 'grey',
+    justifyContent: 'center'
   }
 });
 

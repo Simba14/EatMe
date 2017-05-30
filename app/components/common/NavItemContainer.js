@@ -12,6 +12,15 @@ class NavItemContainer extends Component {
 }
 
 const styles = StyleSheet.create({
+  navItemContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    // alignItems: "center",
+    marginTop: 20,
+    marginBottom: 10,
+    backgroundColor: '#FFFFFF'
+  }
 
 });
 

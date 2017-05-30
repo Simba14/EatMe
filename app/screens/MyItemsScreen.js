@@ -7,7 +7,8 @@ import {
   UpperContainer,
   LowerContainer,
   BottomNavContainer,
-  NavItemContainer
+  NavItemContainer,
+  NavColumnContainer
 } from '../components/common';
 import { NavItem } from '../components/common/NavItem';
 import { NavActiveBar } from '../components/common/NavActiveBar';
@@ -32,14 +33,18 @@ class MyItemsScreen extends Component {
           </SubmitButton>
         </LowerContainer>
         <BottomNavContainer>
-          <NavItem imagePath={ require('../assets/myitemsicon.png')} style={styles.viewStyle}>
-            My Items
-          </NavItem>
-          <NavItem imagePath={ require('../assets/recipeicon.png')}>
-            Recipes
-          </NavItem>
+          <NavItemContainer>
+            <NavItem imagePath={ require('../assets/myitemsicon.png')} style={styles.viewStyle}>
+              My Items
+            </NavItem>
+          </NavItemContainer>
+          <NavItemContainer>
+            <NavItem imagePath={ require('../assets/recipeicon.png')}>
+              Recipes
+            </NavItem>
+            <NavActiveBar style={styles.viewStyle} />
+          </NavItemContainer>
         </BottomNavContainer>
-          <NavActiveBar style={styles.viewStyle} />
       </ViewContainer>
     );
   }
@@ -48,8 +53,7 @@ class MyItemsScreen extends Component {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    // flexDirection: 'row',
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     // alignItems: 'flex-end'
   }
 });

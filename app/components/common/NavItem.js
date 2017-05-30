@@ -15,21 +15,19 @@ const NavItem = ({onPress, children, imagePath}) => {
 const styles = StyleSheet.create({
   viewStyle: {
     flex: 1,
-    borderColor: '#DADADA',
+    flexDirection: 'row',
+    // borderColor: '#DADADA',
     justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomWidth: 0,
-    borderTopWidth: 1,
-    paddingTop: 12,
-    paddingBottom: 20,
-    flexDirection: 'row'
+    // alignItems: 'center',
+    // borderTopWidth: 1,
+    // paddingTop: 12,
+    // paddingBottom: 20,
+    backgroundColor: 'red'
   },
   contentStyle: {
     fontSize: 16,
     paddingLeft: 5
   }
-
-
 })
 
 export { NavItem };

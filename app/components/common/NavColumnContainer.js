@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 
-class BottomNavContainer extends Component {
+class NavColumnContainer extends Component {
   render() {
     return (
       <View style={[styles.navColumnContainer, this.props.style]}>
@@ -13,9 +13,10 @@ class BottomNavContainer extends Component {
 
 const styles = StyleSheet.create({
   navColumnContainer: {
-    flexDirection: 'column',
+    // flexDirection: 'column',
+    // flexWrap: 'wrap',
     backgroundColor: 'blue',
   }
 });
 
-export { BottomNavContainer };
+export { NavColumnContainer };

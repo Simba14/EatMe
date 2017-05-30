@@ -8,3 +8,4 @@ export * from './BottomNavContainer';
 export * from './NavItem';
 export * from './NavActiveBar';
 export * from './NavItemContainer';
+export * from './NavColumnContainer';
