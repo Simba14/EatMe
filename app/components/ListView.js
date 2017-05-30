@@ -31,12 +31,12 @@ class ListView extends Component {
       binnedCount = usageArray[0].binned;
       eatenCount = usageArray[0].eaten;
     }
-
+    
     realm.write(() => {
       if(choice === "binned"){
-        realm.create('UsageDB', { id: uuid.v1(), itemName: itemName, binned: binnedCount+1, });
+        realm.create('UsageDB', { id: uuid.v1(), itemName: itemName, binned: 1 });
       } else {
-        realm.create('UsageDB', { id: uuid.v1(), itemName: itemName, eaten: eatenCount+1 });
+        realm.create('UsageDB', { id: uuid.v1(), itemName: itemName, eaten: 1 });
       }
     });
   }
