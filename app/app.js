@@ -75,8 +75,11 @@ export default class App extends Component {
   }
 
   getWeeklyUsageMessage() {
-    // if (this.state.binnedItemsCount = 0)
-    return 'You threw away ' + this.state.binnedItems.length.toString() + " " + pluralize('item',this.state.binnedItems.length) + ' this week 😩';
+    if (this.state.binnedItems.length < 5) {
+      return 'You threw away ' + this.state.binnedItems.length.toString() + " " + pluralize('item',this.state.binnedItems.length) + ' this week 👍';
+    } else {
+      return 'You threw away ' + this.state.binnedItems.length.toString() + " " + pluralize('item',this.state.binnedItems.length) + ' this week 😩';
+    }
   }
 
   queryDatabase(databaseName, filteredBy, startDate, endDate) {
