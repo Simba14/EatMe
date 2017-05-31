@@ -25,9 +25,13 @@ class Item extends Component {
       onPress: () => { this.props.deleteItem(this.props.item.id, 'eaten') }
     }];
 
-    var expirationDate = this.props.item.expirationDate;
-    if(this.daysToExpire(expirationDate) < 7) {
-      var style = this.daysToExpire(expirationDate) < 3 ? styles.shortToExpire : styles.mediumToExpire;
+    let expirationDate = this.props.item.expirationDate;
+    if(this.daysToExpire(expirationDate) < 0) {
+      let style = styles.expired;
+    } else if(this.daysToExpire(expirationDate) < 3) {
+      let style = styles.shortToExpire;
+    } else if(this.daysToExpire(expirationDate) < 7)
+      let  style = styles.mediumToExpire;
     }
 
     return(
@@ -67,6 +71,9 @@ const styles = StyleSheet.create( {
   },
   shortToExpire: {
     backgroundColor: '#F1BABA'
+  },
+  expired: {
+    backgroundColor: '#9E9E9E'
   },
   textStyleName: {
     fontSize: 15,
