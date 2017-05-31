@@ -1,5 +1,13 @@
 # EatMe
-React Native mobile application to reduce food waste
+
+Native iOS app that helps users keep track of their food's expiration dates to reduce food waste.
+
+This app was built in one week using React Native.
+
+![alt text](http://i.imgur.com/EYS73sK.gif)
+
+### Setup
+
 
 
 ### User stories MVP:
