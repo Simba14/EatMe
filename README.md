@@ -4,6 +4,8 @@ Native iOS app that helps users keep track of their food's expiration dates to r
 
 This app was built in one week using React Native.
 
+![alt text](http://i.imgur.com/6WTJeRP.jpg)
+
 
 ### Contributors
 
@@ -17,14 +19,14 @@ This app was built in one week using React Native.
 
 ### Demo
 
-### Screenshots
+<!-- ### Screenshots
 
 ![alt text](http://i.imgur.com/MHGWpCJ.jpg)
 ![alt text](http://i.imgur.com/q12DKzb.jpg)
 ![alt text](http://i.imgur.com/h6mzXEj.jpg)
 ![alt text](http://i.imgur.com/HLaPsrl.jpg)
 ![alt text](http://i.imgur.com/LjMCIdi.jpg)
-![alt text](http://i.imgur.com/QJ94vNF.jpg)
+![alt text](http://i.imgur.com/QJ94vNF.jpg) -->
 
 
 ### Technologies used
