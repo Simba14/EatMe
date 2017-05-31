@@ -8,6 +8,28 @@ This app was built in one week using React Native.
 
 ### Setup
 
+### Technologies used
+
+[React Native](https://facebook.github.io/react-native/)
+
+- Main language used to built the app.
+
+[Jest](https://facebook.github.io/jest/)
+
+- Testing framework
+
+[Realm](https://realm.io/)
+
+- Used to set up local databases to store information about food items
+
+[UPC Database API](https://www.upcdatabase.com/)
+
+- API used for looking up food items based on Barcode information
+
+[Food2Fork API](http://food2fork.com/about/api)
+
+- API used for looking up recipes based on user's current food items
+
 
 
 ### User stories MVP:
