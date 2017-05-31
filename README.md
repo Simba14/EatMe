@@ -4,36 +4,45 @@ Native iOS app that helps users keep track of their food's expiration dates to r
 
 This app was built in one week using React Native.
 
-![](http://i.imgur.com/EYS73sK.gif)
 
 ### Contributors
 
 [Sean Blundell](https://github.com/Simba14)
+
 [Pete Wilkins](https://github.com/petewilkins)
+
 [Jessica Rodriguez](https://github.com/j-rods)
+
 [Magnus Holm](https://github.com/mghlm)
+
+### Demo
+
+### Screenshots
+
+![alt text](http://i.imgur.com/MHGWpCJ.jpg)
+![alt text](http://i.imgur.com/q12DKzb.jpg)
+![alt text](http://i.imgur.com/h6mzXEj.jpg)
+![alt text](http://i.imgur.com/HLaPsrl.jpg)
+![alt text](http://i.imgur.com/LjMCIdi.jpg)
+![alt text](http://i.imgur.com/QJ94vNF.jpg)
+
 
 ### Technologies used
 
 [React Native](https://facebook.github.io/react-native/)
-
-Main language used to built the app.
+(Main language used to built the app.)
 
 [Jest](https://facebook.github.io/jest/)
-
-Testing framework
+(Testing framework)
 
 [Realm](https://realm.io/)
-
-Used to set up local databases to store information about food items
+(Used to set up local databases to store information about food items)
 
 [UPC Database API](https://www.upcdatabase.com/)
-
-API used for looking up food items based on Barcode information
+(API used for looking up food items based on Barcode information)
 
 [Food2Fork API](http://food2fork.com/about/api)
-
-API used for looking up recipes based on user's current food items
+(API used for looking up recipes based on user's current food items)
 
 ### Acknowledgements
 
