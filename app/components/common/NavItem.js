@@ -14,15 +14,14 @@ const NavItem = ({onPress, children, imagePath}) => {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    flex: 1,
+    // flex: 1 - causes button width to go offscreen
     flexDirection: 'row',
-    // borderColor: '#DADADA',
+    borderColor: '#DADADA',
     justifyContent: 'center',
-    // alignItems: 'center',
-    // borderTopWidth: 1,
-    // paddingTop: 12,
-    // paddingBottom: 20,
-    backgroundColor: 'red'
+    alignItems: 'center',
+    borderTopWidth: 1,
+    paddingTop: 12,
+    paddingBottom: 20,
   },
   contentStyle: {
     fontSize: 16,

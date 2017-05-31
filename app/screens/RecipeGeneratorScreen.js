@@ -25,7 +25,7 @@ class RecipeGeneratorScreen extends Component {
         </LowerContainer>
 
         <BottomNavContainer>
-          <TouchableOpacity onPress={ () => Actions.main() }>
+          <TouchableOpacity onPress={ () => Actions.main()}>
             <NavItemContainer>
               <NavItem imagePath={ require('../assets/myitemsicon.png')} style={styles.viewStyle}>
                 My Items
@@ -50,7 +50,7 @@ class RecipeGeneratorScreen extends Component {
 
 const styles = {
   viewStyle: {
-    // justifyContent: 'flex-end',
+    // justifyContent: 'center'
     // alignItems: 'flex-end'
   }
 }

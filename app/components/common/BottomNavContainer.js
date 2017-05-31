@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
   bottomNavContainer: {
     flex: 1.5,
     flexDirection: 'row',
-    backgroundColor: 'grey',
-    justifyContent: 'center'
+    justifyContent: 'center',
   }
 });
 

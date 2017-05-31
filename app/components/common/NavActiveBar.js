@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#0FB980',
-    // alignItems: 'flex-end',
+    justifyContent: 'center'
     // justifyContent: 'flex-end'
   }
 });
