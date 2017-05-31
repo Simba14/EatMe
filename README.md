@@ -1,6 +1,6 @@
-# EatMe
+# Eat Me
 
-Native iOS app that helps users keep track of their food's expiration dates to reduce food waste.
+Eat Me is a native iOS app that helps users keep track of their food's expiration dates to reduce food waste.
 
 This app was built in one week using React Native.
 
@@ -9,15 +9,16 @@ This app was built in one week using React Native.
 
 ### Contributors
 
-[Sean Blundell](https://github.com/Simba14)
-
-[Pete Wilkins](https://github.com/petewilkins)
-
-[Jessica Rodriguez](https://github.com/j-rods)
-
+[Sean Blundell](https://github.com/Simba14) |
+[Pete Wilkins](https://github.com/petewilkins) |
+[Jessica Rodriguez](https://github.com/j-rods) |
 [Magnus Holm](https://github.com/mghlm)
 
-### Demo
+### How to demo the app
+
+
+
+
 
 <!-- ### Screenshots
 
@@ -31,24 +32,27 @@ This app was built in one week using React Native.
 
 ### Technologies used
 
-[React Native](https://facebook.github.io/react-native/)
+- [React Native](https://facebook.github.io/react-native/)
 (Main language used to built the app.)
 
-[Jest](https://facebook.github.io/jest/)
+- [Jest](https://facebook.github.io/jest/)
 (Testing framework)
 
-[Realm](https://realm.io/)
+- [Realm](https://realm.io/)
 (Used to set up local databases to store information about food items)
 
-[UPC Database API](https://www.upcdatabase.com/)
+- [FlexBox](https://facebook.github.io/react-native/docs/flexbox.html)
+(Used to style the app)
+
+- [UPC Database API](https://www.upcdatabase.com/)
 (API used for looking up food items based on Barcode information)
 
-[Food2Fork API](http://food2fork.com/about/api)
+- [Food2Fork API](http://food2fork.com/about/api)
 (API used for looking up recipes based on user's current food items)
 
 ### Acknowledgements
 
-[Stephen Grider](https://www.udemy.com/user/sgslo/) from Udmey. This project wouldn't have been possible without you :)
+[Stephen Grider](https://www.udemy.com/user/sgslo/) from Udmey. This project wouldn't have been possible without you
 
 ### Known Issues
 
@@ -92,4 +96,26 @@ I want items that has reached the expiration date to be highlighted
 As a user
 So that I can keep my list updated
 I want to be able to delete an item
+```
+
+### User stories for more features
+```
+As a user
+So that I can add my items quicker
+I want to be able to scan their barcode
+```
+```
+As a user
+So that I can easily get my soon-to-be expired items used
+I want to be able to look up recipes based on those items
+```
+```
+As a user
+So that I can get reminded of what items goes bad
+I want to receive a notification in the morning
+```
+```
+As a user
+So that I can keep track of how much of my food goes to waste
+I want to be able to specify whether an item was binned or eaten when deleted
 ```
