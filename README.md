@@ -86,6 +86,13 @@ $ react-native run-ios
 
 - Android version
 
+### Screenshots
+
+![alt text](http://i.imgur.com/zWJ4DDu.jpg)
+
+### Gif demo
+
+![](http://i.imgur.com/Pc5UGK9.gif)
 
 ### User stories for MVP:
 
