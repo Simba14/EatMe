@@ -39,7 +39,7 @@ class Item extends Component {
       <Swipeout right={swipeoutBtns} style={styles.swipeStyle}>
         <View style={[styles.textContainer, style] }>
           <Text style={ styles.textStyleName }> { this.props.item.itemName } </Text>
-          <Text style={ styles.textStyleDate }> Expires: { moment(expirationDate).fromNow() } </Text>
+          <Text style={ styles.textStyleDate }> { this.getExpirationText(expirationDate) } </Text>
         </View>
       </Swipeout>
     );
@@ -51,6 +51,13 @@ class Item extends Component {
     return expirationDate.diff(today, 'days')
   }
 
+  getExpirationText(expirationDate) {
+    if(this.daysToExpire(expirationDate) < 0) {
+      return 'Expired: ' + moment(expirationDate).fromNow();
+    } else {
+      return 'Expires: ' + moment(expirationDate).fromNow();
+    }
+  }
 };
 
 const styles = StyleSheet.create( {
