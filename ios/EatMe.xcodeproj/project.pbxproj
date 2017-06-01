@@ -1314,7 +1314,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-";
+				PRODUCT_BUNDLE_IDENTIFIER = "-blahblah";
 				PRODUCT_NAME = EatMe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1341,7 +1341,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-";
+				PRODUCT_BUNDLE_IDENTIFIER = "-blahblah";
 				PRODUCT_NAME = EatMe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

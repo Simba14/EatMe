@@ -2,7 +2,7 @@
 
 Eat Me is a native iOS app that helps users keep track of their food's expiration dates to reduce food waste.
 
-This app was built in one week using React Native.
+This app was built in 8 days using React Native.
 
 ![alt text](http://i.imgur.com/6WTJeRP.jpg)
 
@@ -16,6 +16,34 @@ This app was built in one week using React Native.
 
 ### How to demo the app
 
+**1. Install node (if you haven't already)**
+```
+$ brew install node
+```
+**2. Clone and update repo**
+```
+$ git clone git@github.com:Simba14/EatMe.git
+$ cd EatMe
+$ npm install
+```
+If you encounter any errors, update note and try again
+```
+$ npm update
+```
+
+**3. Download xcode**
+
+- [Download Xcode here along with other useful tools](http://www.preparetocode.io/pick-your-os/)
+
+**4. Set up simulator**
+
+- Make sure you're in the EatMe directory
+
+```
+$ react-native run-ios
+```
+
+**5. Have fun!**
 
 
 
@@ -53,12 +81,6 @@ This app was built in one week using React Native.
 ### Acknowledgements
 
 [Stephen Grider](https://www.udemy.com/user/sgslo/) from Udmey. This project wouldn't have been possible without you
-
-### Known Issues
-
-- API keys are not hidden, and calls are made directly from the app and not at a backend server.
-
-- We have no unit tests
 
 ### Future Additions
 
