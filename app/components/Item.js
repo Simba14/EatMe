@@ -26,12 +26,13 @@ class Item extends Component {
     }];
 
     let expirationDate = this.props.item.expirationDate;
+    let style;
     if(this.daysToExpire(expirationDate) < 0) {
-      let style = styles.expired;
+      style = styles.expired;
     } else if(this.daysToExpire(expirationDate) < 3) {
-      let style = styles.shortToExpire;
-    } else if(this.daysToExpire(expirationDate) < 7)
-      let  style = styles.mediumToExpire;
+      style = styles.shortToExpire;
+    } else if(this.daysToExpire(expirationDate) < 7) {
+      style = styles.mediumToExpire;
     }
 
     return(
