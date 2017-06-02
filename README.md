@@ -1,7 +1,7 @@
 # Eat Me
 
-Eat Me is a native iOS app that helps users keep track of their food's expiration dates to reduce food waste.
-The app lets users add their food items, either manually or by scanning the barcode, and specify an expiration date. It then keeps track of when the food goes bad and sends a notification in the morning if one ore more items is soon to expire.
+Eat Me is a native iOS app that helps users keep track of their foods expiration dates to reduce food waste.
+The app lets users add their food items, either manually or by scanning the barcode, and specify an expiration date. It then keeps track of when the food goes off and sends a notification in the morning if one or more items is soon to expire.
 
 When deleting an item, the user has an option to either mark it as "eaten" or "binned". This way the app can send a weekly notification with the amount of items wasted that week.
 
